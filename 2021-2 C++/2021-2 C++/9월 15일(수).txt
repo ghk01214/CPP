@@ -1,0 +1,139 @@
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 2021-10-20 오전 2:49:07 수요일
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 15일 수요일 (3주 1일)
+// 
+// C++은 자료를 어떻게 정렬하는가
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <random>
+#include "save.h"
+
+// [문제] 주사위를 10000번 던져 나온 숫자를 메모리에 저장하라.
+// 각 숫자의 출현 확률을 계산하여 화면에 출력하라.
+
+int main()
+{
+	std::random_device rd;
+	std::default_random_engine dre(rd());
+	std::uniform_int_distribution<int> uid(1, 6);
+
+	char num[10000];
+	int per[6]{};
+
+	for (int i = 0; i < std::size(num); ++i)
+	{
+		num[i] = uid(dre);
+
+		switch (num[i])
+		{
+		case 1:
+			++per[0];
+			break;
+		case 2:
+			++per[1];
+			break;
+		case 3:
+			++per[2];
+			break;
+		case 4:
+			++per[3];
+			break;
+		case 5:
+			++per[4];
+			break;
+		case 6:
+			++per[5];
+			break;
+		}
+	}
+
+	for (int i = 0; i < std::size(per); ++i)
+	{
+		std::cout << i + 1 << "의 확률 : " << static_cast<double>(per[i]) / std::size(num) << std::endl;
+	}
+
+	Save("main.cpp", "9월 15일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 2021-10-20 오전 2:52:01 수요일
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 15일 수요일 (3주 1일)
+// 
+// C++은 자료를 어떻게 정렬하는가
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <random>
+#include "save.h"
+
+// [문제] 주사위를 10000번 던져 나온 숫자를 메모리에 저장하라.
+// 각 숫자의 출현 확률을 계산하여 화면에 출력하라.
+
+int main()
+{
+	std::random_device rd;
+	std::default_random_engine dre(rd());
+	std::uniform_int_distribution<int> uid(1, 6);
+
+	char num[10000];
+	int per[6]{};
+
+	for (int i = 0; i < std::size(num); ++i)
+	{
+		num[i] = uid(dre);
+	}
+
+	for (int n : num)
+	{
+		++per[n - 1];
+	}
+
+	for (int i = 0; i < std::size(per); ++i)
+	{
+		std::cout << i + 1 << "의 확률 : " << static_cast<double>(per[i]) / std::size(num) << std::endl;
+	}
+
+	Save("main.cpp", "9월 15일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 2021-10-20 오전 3:03:28 수요일
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 15일 수요일 (3주 1일)
+// 
+// C++은 자료를 어떻게 정렬하는가
+// 지역변수의 크기 한계 - default 1MB
+// 전역변수의 크기 한계 - 운영체제가 제공할 수 있는 만큼
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <random>
+#include <fstream>
+#include "save.h"
+
+// [문제] 파일 "점수.txt"에는 학생 100명의 C++ 점수가 저장되어 있다.
+// 평균점수를 계산하여 화면에 출력하라.
+
+int main()
+{
+	int num[100];
+	int aver{};
+	std::ifstream in{ "점수.txt", std::ios::app };
+
+	for (int i = 0; i < 100; ++i)
+	{
+		in >> num[i];
+		aver += num[i];
+	}
+
+	std::cout << "평균 = " << static_cast<double>(aver) / std::size(num) << std::endl;
+
+	Save("main.cpp", "9월 15일(수).txt");
+}
+

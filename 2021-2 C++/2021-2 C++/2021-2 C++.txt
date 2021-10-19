@@ -1,0 +1,1327 @@
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 2021-09-11 오전 4:19:29 토요일
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 6일 월요일 (1주 2일)
+// 
+// 소스 파일을 파일로 저장
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <string>
+#include "save.h"
+
+// [문제] 이름을 입력받아 환영한다는 문자를 출력하라.
+
+int main()
+{
+	std::string sName;
+
+	std::cout << "이름을 입력하세요 : ";
+	std::cin >> sName;
+	
+	std::cout << "이름 : " << sName << std::endl;
+
+	Save("main.cpp", "9월 6일(월).txt");
+}
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 2021-09-11 오전 4:22:12 토요일
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 6일 월요일 (1주 2일)
+// 
+// 소스 파일을 파일로 저장
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <string>
+#include "save.h"
+
+// [문제] 구구단을 출력하는 프로그램을 작성하라.
+// 몇 단을 출력할 것인지 입력받고 그 단을 화면에 출력하면 된다.
+
+int main()
+{
+	int nNumber;
+
+	std::cout << "출력할 구구단의 단수 : ";
+	std::cin >> nNumber;
+
+	for (int i = 0; i < 9; ++i)
+	{
+		std::cout << nNumber << " * " << i + 1 << " = " << nNumber * (i + 1) << std::endl;
+	}
+
+	Save("main.cpp", "9월 6일(월).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 2021-09-11 오전 4:48:16 토요일
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 6일 월요일 (1주 2일)
+// 
+// 소스 파일을 파일로 저장
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <string>
+#include "save.h"
+
+// [문제] C++ 언어에서 미리 정의한 자료형 int의 메모리 크기를 알아보자
+
+int main()
+{
+	std::cout << "int의 메모리 크기 : " << sizeof(int) << std::endl;
+
+	Save("main.cpp", "9월 6일(월).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 2021-09-11 오전 5:00:41 토요일
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 6일 월요일 (1주 2일)
+// 
+// 소스 파일을 파일로 저장
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <string>
+#include "save.h"
+
+// [문제] C++ 언어에서 미리 정의한 자료형 int의 메모리 크기를 알아보자
+
+int main()
+{
+	int n{};
+
+	std::cout << n << "의 메모리 크기 : " << sizeof(n) << std::endl;
+
+	Save("main.cpp", "9월 6일(월).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 2021-09-11 오전 5:01:54 토요일
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 6일 월요일 (1주 2일)
+// 
+// 소스 파일을 파일로 저장
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <string>
+#include "save.h"
+
+// [문제] C++ 언어에서 미리 정의한 자료형 int의 메모리 크기를 알아보자
+
+int main()
+{
+	int n{ 0x7fffffff };
+
+	std::cout << "int의 메모리 크기 : " << sizeof(int) << std::endl;
+
+	std::cout << "가장 큰 값 : " << n << std::endl;
+	std::cout << "가장 작은 값 : " << n + 1 << std::endl;
+
+	Save("main.cpp", "9월 6일(월).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 2021-09-11 오전 5:03:42 토요일
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 6일 월요일 (1주 2일)
+// 
+// 소스 파일을 파일로 저장
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <string>
+#include "save.h"
+
+// [문제] int의 최댓값과 최솟값을 출력하라
+
+int main()
+{
+	std::cout << "int의 최댓값 : " << std::numeric_limits<int>::max() << std::endl;
+	std::cout << "int의 최솟값 : " << std::numeric_limits<int>::min() << std::endl;
+
+	Save("main.cpp", "9월 6일(월).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 2021-10-20 오전 1:16:48 수요일
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 8일 수요일 (2주 1일)
+// 
+// 자료형과 변수
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include "save.h"
+
+int main()
+{
+	// 어떻게 설명하면 좋은가?
+	int num;
+	// int에서 정해진 크기만큼 메모리를 확보해 주세요.
+	// 앞으로 num이라는 이름으로 메모리를 읽고 쓰겠습니다.
+
+	num = 10;
+
+	std::cout << num << std::endl;
+
+	Save("main.cpp", "9월 8일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 01:22:26 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 8일 수요일 (2주 1일)
+// 
+// 자료형과 변수
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include "save.h"
+
+// [문제] 실행해 보고 값이 출력되는 이유를 설명해 보라.
+
+int main()
+{
+	int num;
+
+	std::cout << num << std::endl;
+
+	Save("main.cpp", "9월 8일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 01:25:36 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 8일 수요일 (2주 1일)
+// 
+// 자료형과 변수
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include "save.h"
+
+// [문제] 
+
+int main()
+{
+	// 값을 최기화할 수 있다.
+	// initialization - 메모리를 할당하면서 값을 쓰는 특별한 동작
+	// C++에서 초기화는 여러가지 방법을 할 수 있는데
+	// 앞으로는 uniform initialization을 사용하자.
+
+	int num{ 123 };
+
+	std::cout << num << std::endl;
+
+	Save("main.cpp", "9월 8일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 01:26:30 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 8일 수요일 (2주 1일)
+// 
+// 자료형과 변수
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include "save.h"
+
+// [문제] 
+
+int main()
+{
+	char;
+	int num{ 123 };
+	double;
+
+	std::cout << sizeof(double) << std::endl;
+
+	Save("main.cpp", "9월 8일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 01:26:37 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 8일 수요일 (2주 1일)
+// 
+// 자료형과 변수
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include "save.h"
+
+// [문제] 
+
+int main()
+{
+	char;
+	int num{ 123 };
+	double;
+
+	std::cout << sizeof(float) << std::endl;
+
+	Save("main.cpp", "9월 8일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 01:28:23 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 8일 수요일 (2주 1일)
+// 
+// 자료형과 변수
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include "save.h"
+
+// [문제] 다음 코드를 실행한 결과를 설명하라.
+// 전역변수는 언제나 {}으로 초기화되기 때문 - default 초기화
+
+int num;
+
+int main()
+{
+	std::cout << num << std::endl;
+
+	Save("main.cpp", "9월 8일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 01:29:31 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 8일 수요일 (2주 1일)
+// 
+// 자료형과 변수
+// - uniform 초기화
+// - 지역변수와 전역변수
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include "save.h"
+
+// [문제] 다음 코드를 실행한 결과를 설명하라.
+
+int num{ 123 };
+
+int main()
+{
+	int num{ 456 };	// 초기화하지 않는다.
+
+	std::cout << num << std::endl;
+
+	Save("main.cpp", "9월 8일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 01:29:58 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 8일 수요일 (2주 1일)
+// 
+// 자료형과 변수
+// - uniform 초기화
+// - 지역변수와 전역변수
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include "save.h"
+
+// [문제] 다음 코드를 실행한 결과를 설명하라.
+
+int num{ 123 };
+
+int main()
+{
+	int num{ 456 };	// 초기화하지 않는다.
+
+	std::cout << ::num << std::endl;
+
+	Save("main.cpp", "9월 8일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 01:36:45 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 8일 수요일 (2주 1일)
+// 
+// 자료형과 변수
+// - uniform 초기화
+// - 지역변수와 전역변수
+// - int[]와 같은 자료형은 반드시 연속된 메모리를 확보한다.
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include "save.h"
+
+// [문제] 다음 코드를 실행한 결과를 설명하라.
+
+int main()
+{
+	int num[10];
+
+	// num에 저장된 값을 출력해보고 지역변수가 어떻게 생성되는지 알아보자
+	// num은 int 10개가 저장된 메모리를 나타낸다.
+
+	Save("main.cpp", "9월 8일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 01:37:27 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 8일 수요일 (2주 1일)
+// 
+// 자료형과 변수
+// - uniform 초기화
+// - 지역변수와 전역변수
+// - int[]와 같은 자료형은 반드시 연속된 메모리를 확보한다.
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include "save.h"
+
+// [문제] num에 저장된 정수 10개를 출력하라.
+
+int main()
+{
+	int num[10];
+
+	for (int i = 0; i < 10; ++i)
+	{
+		std::cout << num[i] << std::endl;
+	}
+
+	Save("main.cpp", "9월 8일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 01:38:03 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 8일 수요일 (2주 1일)
+// 
+// 자료형과 변수
+// - uniform 초기화
+// - 지역변수와 전역변수
+// - int[]와 같은 자료형은 반드시 연속된 메모리를 확보한다.
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include "save.h"
+
+// [문제] num에 저장된 정수 10개를 출력하라.
+
+int num[10];
+
+int main()
+{
+	for (int i = 0; i < 10; ++i)
+	{
+		std::cout << num[i] << std::endl;
+	}
+
+	Save("main.cpp", "9월 8일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 01:38:26 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 8일 수요일 (2주 1일)
+// 
+// 자료형과 변수
+// - uniform 초기화
+// - 지역변수와 전역변수
+// - int[]와 같은 자료형은 반드시 연속된 메모리를 확보한다.
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include "save.h"
+
+// [문제] num에 저장된 정수 10개를 출력하라.
+
+int main()
+{
+	int num[10]{};
+
+	for (int i = 0; i < 10; ++i)
+	{
+		std::cout << num[i] << std::endl;
+	}
+
+	Save("main.cpp", "9월 8일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 01:38:42 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 8일 수요일 (2주 1일)
+// 
+// 자료형과 변수
+// - uniform 초기화
+// - 지역변수와 전역변수
+// - int[]와 같은 자료형은 반드시 연속된 메모리를 확보한다.
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include "save.h"
+
+// [문제] num에 저장된 정수 10개를 출력하라.
+
+int main()
+{
+	int num[10]{ 123 };
+
+	for (int i = 0; i < 10; ++i)
+	{
+		std::cout << num[i] << std::endl;
+	}
+
+	Save("main.cpp", "9월 8일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 01:39:18 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 8일 수요일 (2주 1일)
+// 
+// 자료형과 변수
+// - uniform 초기화
+// - 지역변수와 전역변수
+// - int[]와 같은 자료형은 반드시 연속된 메모리를 확보한다.
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include "save.h"
+
+// [문제] num에 저장된 정수 10개를 출력하라.
+
+int main()
+{
+	int num[10]{ 1, 2, 3, 4, 5 };
+
+	for (int i = 0; i < 10; ++i)
+	{
+		std::cout << num[i] << std::endl;
+	}
+
+	Save("main.cpp", "9월 8일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 01:39:37 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 8일 수요일 (2주 1일)
+// 
+// 자료형과 변수
+// - uniform 초기화
+// - 지역변수와 전역변수
+// - int[]와 같은 자료형은 반드시 연속된 메모리를 확보한다.
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include "save.h"
+
+// [문제] num에 저장된 정수 10개를 출력하라.
+
+int main()
+{
+	int num[20]{ 1, 2, 3, 4, 5 };
+
+	for (int i = 0; i < 20; ++i)
+	{
+		std::cout << num[i] << std::endl;
+	}
+
+	Save("main.cpp", "9월 8일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 01:42:08 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 8일 수요일 (2주 1일)
+// 
+// 자료형과 변수
+// - uniform 초기화
+// - 지역변수와 전역변수
+// - int[]와 같은 자료형은 반드시 연속된 메모리를 확보한다.
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include "save.h"
+
+// [문제] num에 저장된 정수를 출력하라.
+
+int main()
+{
+	int num[]{ 1, 2, 3, 4, 5 };
+
+	for (int i = 0; i < std::size(num); ++i)
+	{
+		std::cout << num[i] << std::endl;
+	}
+
+	Save("main.cpp", "9월 8일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 01:43:17 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 8일 수요일 (2주 1일)
+// 
+// 자료형과 변수
+// - uniform 초기화
+// - 지역변수와 전역변수
+// - int[]와 같은 자료형은 반드시 연속된 메모리를 확보한다.
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include "save.h"
+
+// [문제] num에 저장된 값을 모두 출력하라
+// range-for를 이용하여 출력한다.
+
+int main()
+{
+	int num[]{ 1, 2, 3, 4, 5, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5 };
+
+	// range-for
+	for (int n : num)
+	{
+		std::cout << n << std::endl;
+	}
+
+	Save("main.cpp", "9월 8일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 01:46:43 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 8일 수요일 (2주 1일)
+// 
+// 자료형과 변수
+// - uniform 초기화
+// - 지역변수와 전역변수
+// - int[]와 같은 자료형은 반드시 연속된 메모리를 확보한다.
+// - 지역변수는 사는 곳이 같다.
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include "save.h"
+
+// [문제]
+
+int main()
+{
+	// 지역이란 무엇인가? -> 전역이 아닌 곳
+	// 지역변수에는 공통점이 있다.
+	// -> 사는 곳이 같다.
+
+	Save("main.cpp", "9월 8일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 01:48:38 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 8일 수요일 (2주 1일)
+// 
+// 자료형과 변수
+// - uniform 초기화
+// - 지역변수와 전역변수
+// - int[]와 같은 자료형은 반드시 연속된 메모리를 확보한다.
+// - 지역변수는 사는 곳이 같다.
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <string>
+#include "save.h"
+
+// [문제]
+
+int main()
+{
+	char		 c{ 'A' };
+	short		 s{ 123 };
+	int			 num{ 123456789 };
+	double		 d{ 3.14159265358979 };
+	std::string	 str{ "C++은 너무 재미있어!" };
+
+	std::cout << c << std::endl;
+	std::cout << d << std::endl;
+
+	std::cout << "string 자료형이 차지하는 메모리 : " << sizeof(str) << std::endl;
+
+	Save("main.cpp", "9월 8일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 01:53:07 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 13일 월요일 (2주 2일)
+// 
+// 지역변수는 사는 곳이 같다.
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <string>
+#include "save.h"
+
+// [문제] 각 변수의 내용과 메모리 주소를 출력하라.
+
+int main()
+{
+	char		 c{ 'A' };
+	short		 s{ 123 };
+	int			 n{ 123456789 };
+	double		 d{ 3.14159265358979 };
+	std::string	 str{ "C++은 너무 재미있어!" };
+
+	std::cout << c << ", " << &c << std::endl;
+	std::cout << s << ", " << &s << std::endl;
+	std::cout << n << ", " << &n << std::endl;
+	std::cout << d << ", " << &d << std::endl;
+	std::cout << str << ", " << &str << std::endl;
+
+	Save("main.cpp", "9월 13일(월).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 01:53:57 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 13일 월요일 (2주 2일)
+// 
+// 지역변수는 사는 곳이 같다.
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <string>
+#include "save.h"
+
+// [문제] 각 변수의 내용과 메모리 주소를 출력하라.
+
+int main()
+{
+	char		 c{ 'A' };
+	short		 s{ 123 };
+	int			 n{ 123456789 };
+	double		 d{ 3.14159265358979 };
+	std::string	 str{ "C++은 너무 재미있어!" };
+
+	std::cout << c << ", " << static_cast<void*>(&c) << std::endl;
+	std::cout << s << ", " << &s << std::endl;
+	std::cout << n << ", " << &n << std::endl;
+	std::cout << d << ", " << &d << std::endl;
+	std::cout << str << ", " << &str << std::endl;
+
+	Save("main.cpp", "9월 13일(월).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 02:01:27 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 13일 월요일 (2주 2일)
+// 
+// 지역변수는 사는 곳이 같다.
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <string>
+#include "save.h"
+
+// [문제] 각 변수의 내용과 메모리 주소를 출력하라.
+
+int main()
+{
+	char		 c{ 'A' };
+	short		 s{ 123 };
+	int			 n{ 123456789 };
+	double		 d{ 3.14159265358979 };
+	std::string	 str{ "C++은 너무 재미있어!" };
+
+	// [실습] - &c의 ㄱ밧이 주소로 출력되지 않는 이유를 알아보라.
+	// char *로 된 포인터의 참조 값을 찍으려 했을 때 잘 되지 않았던 이유는 바로 iostream에서 ostream과 관련이 있다.
+	// ostream이용 시에 C++은 char *를 string으로 인식하게 되는데 C++의 string 특성 상 문자열의 끝을 알리는 '\0'가 들어오지 않는 문자열이 끝이 났다고 인식하지 않는다.
+	// 따라서 주소가 출력되지 않고 빈 칸으로 출력된다.(C++에서 string은 '\0'이라고 하는 NULL이 들어오면 끝으로 인식하는 Zero-Terminated 구조이다.)
+	// 따라서 non-char 포인터인 int *, double * 등은 위와 같은 문제가 없지만 char*는 주소를 출력하려고 할 때, 문제가 발생하는 것이다.
+	// 성공적으로 주소를 출력하기 위해선 char * 타입의 변수를 non-char 포인터 타입으로 형 변환 해주면 되는데, 이에 대해선 Generic 타입이 가장 적합한 선택지이다.
+	// 따라서 std::cout << ptr << std::endl 할 때 ptr을 void *로 형 변환하면 된다.
+	std::cout << c << ", " << static_cast<void*>(&c) << std::endl;
+	std::cout << s << ", " << &s << std::endl;
+	std::cout << n << ", " << &n << std::endl;
+	std::cout << d << ", " << &d << std::endl;
+	std::cout << str << ", " << &str << std::endl;
+
+	{	// 지역변수를 만들고 주소를 확인해 본다.
+		int num[]{ 11, 22, 33, 44, 55 };
+
+		// [문제] num의 모든 원소의 값과 주소를 출력하라.
+		for (int i = 0; i < std::size(num); ++i)
+		{
+			std::cout << num[i] << ", " << &num[i] << std::endl;
+		}
+	}
+
+	Save("main.cpp", "9월 13일(월).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 02:03:10 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 13일 월요일 (2주 2일)
+// 
+// 지역변수가 사는 곳 - STACK(메모리 공간, 자료구조에서 배우는 STACK과 다름)
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <string>
+#include "save.h"
+
+// [문제] 전역변수와 지역변수가 만들어진 공간이 다름을 확인하라.
+int g;
+
+int main()
+{
+	char		 c{ 'A' };
+	short		 s{ 123 };
+	int			 n{ 123456789 };
+	double		 d{ 3.14159265358979 };
+	std::string	 str{ "C++은 너무 재미있어!" };
+
+	std::cout << g << ", " << &g << std::endl;
+
+	// [실습] - &c의 ㄱ밧이 주소로 출력되지 않는 이유를 알아보라.
+	// char *로 된 포인터의 참조 값을 찍으려 했을 때 잘 되지 않았던 이유는 바로 iostream에서 ostream과 관련이 있다.
+	// ostream이용 시에 C++은 char *를 string으로 인식하게 되는데 C++의 string 특성 상 문자열의 끝을 알리는 '\0'가 들어오지 않는 문자열이 끝이 났다고 인식하지 않는다.
+	// 따라서 주소가 출력되지 않고 빈 칸으로 출력된다.(C++에서 string은 '\0'이라고 하는 NULL이 들어오면 끝으로 인식하는 Zero-Terminated 구조이다.)
+	// 따라서 non-char 포인터인 int *, double * 등은 위와 같은 문제가 없지만 char*는 주소를 출력하려고 할 때, 문제가 발생하는 것이다.
+	// 성공적으로 주소를 출력하기 위해선 char * 타입의 변수를 non-char 포인터 타입으로 형 변환 해주면 되는데, 이에 대해선 Generic 타입이 가장 적합한 선택지이다.
+	// 따라서 std::cout << ptr << std::endl 할 때 ptr을 void *로 형 변환하면 된다.
+	std::cout << c << ", " << static_cast<void*>(&c) << std::endl;
+	std::cout << s << ", " << &s << std::endl;
+	std::cout << n << ", " << &n << std::endl;
+	std::cout << d << ", " << &d << std::endl;
+	std::cout << str << ", " << &str << std::endl;
+
+	{	// 지역변수를 만들고 주소를 확인해 본다.
+		int num[]{ 11, 22, 33, 44, 55 };
+
+		// [문제] num의 모든 원소의 값과 주소를 출력하라.
+		for (int i = 0; i < std::size(num); ++i)
+		{
+			std::cout << num[i] << ", " << &num[i] << std::endl;
+		}
+	}
+
+	Save("main.cpp", "9월 13일(월).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 02:10:26 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 13일 월요일 (2주 2일)
+// 
+// 지역변수가 사는 곳 - STACK(메모리 공간, 자료구조에서 배우는 STACK과 다름)
+// 전역변수가 사는 곳 - DATA
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <string>
+#include "save.h"
+
+// [문제] 두 변수 a와 b의 값이 서로 바뀌도록 코딩하라.
+
+int main()
+{
+	int a{ 1 };
+	int b{ 2 };
+
+	int temp{ a };
+	a = b;
+	b = temp;
+
+	std::cout << a << ", " << b << std::endl;
+
+	Save("main.cpp", "9월 13일(월).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 02:16:12 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 13일 월요일 (2주 2일)
+// 
+// 지역변수가 사는 곳 - STACK(메모리 공간, 자료구조에서 배우는 STACK과 다름)
+// 전역변수가 사는 곳 - DATA
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <string>
+#include "save.h"
+
+// [문제] num에 저장된 int 값 중에서 제일 큰 수를 마지막 위치로 옮겨라.
+
+int main()
+{
+	int num[]{ 3, 1, 9, 5, 7 };
+
+	for (int i = 0; i < std::size(num) - 1; ++i)
+	{
+		if (num[i] > num[i + 1])
+		{
+			int temp{ num[i] };
+			num[i] = num[i + 1];
+			num[i + 1] = temp;
+		}
+	}
+
+	for (int n : num)
+	{
+		std::cout << n << std::endl;
+	}
+
+	Save("main.cpp", "9월 13일(월).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 02:19:50 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 13일 월요일 (2주 2일)
+// 
+// int를 정렬해 본다
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <string>
+#include "save.h"
+
+// [문제] num에 저장된 int 값을 오름차순으로 정렬하시오.
+
+int main()
+{
+	int num[]{ 12, 43, 333, 12, 333, 33333, 124235, 6, -120, -111 };
+
+	// 버블 정렬: 가장 비효율적인 코드이다.
+	for (int i = std::size(num) - 1; i >= 0; --i)
+	{
+		for (int j = 0; j < i; ++j)
+		{
+			if (num[j] > num[j + 1])
+			{
+				int temp{ num[j] };
+				num[j] = num[j + 1];
+				num[j + 1] = temp;
+			}
+		}
+	}
+
+	for (int n : num)
+	{
+		std::cout << n << std::endl;
+	}
+
+	Save("main.cpp", "9월 13일(월).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 02:21:12 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 13일 월요일 (2주 2일)
+// 
+// int를 정렬해 본다
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <string>
+#include "save.h"
+
+// [문제] num에 저장된 int 값을 오름차순으로 정렬하시오.
+
+int main()
+{
+	int num[]{ 12, 43, 333, 12, 333, 33333, 124235, 6, -120, -111 };
+
+	// 버블 정렬: 가장 비효율적인 코드이다.
+	for (int i = 0; i < std::size(num) - 1; ++i)
+	{
+		for (int j = 0; j < std::size(num) - 1 - i; ++j)
+		{
+			if (num[j] > num[j + 1])
+			{
+				int temp{ num[j] };
+				num[j] = num[j + 1];
+				num[j + 1] = temp;
+			}
+		}
+	}
+
+	for (int n : num)
+	{
+		std::cout << n << std::endl;
+	}
+
+	Save("main.cpp", "9월 13일(월).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 02:28:08 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 13일 월요일 (2주 2일)
+// 
+// int를 정렬해 본다 - 버블 정렬
+// int 값을 random하게 생성하는 방법
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <string>
+#include <random>
+#include "save.h"
+
+// [문제] 임의의 정수값(pseudo-random value)을 화면에 출력하라.
+// C++에서 랜덤값 생성
+// - 랜덤 엔진과 분포를 사용한다.
+
+int main()
+{
+	std::random_device rd;
+	std::default_random_engine dre(rd());
+	std::uniform_int_distribution<int> uid;
+
+	for (int i = 0; i < 100; ++i)
+	{
+		std::cout << uid(dre) << std::endl;
+	}
+
+	Save("main.cpp", "9월 13일(월).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 02:29:00 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 13일 월요일 (2주 2일)
+// 
+// int를 정렬해 본다 - 버블 정렬
+// int 값을 random하게 생성하는 방법
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <string>
+#include <random>
+#include "save.h"
+
+// [문제] 주사위 값을 출력하라.
+
+int main()
+{
+	std::random_device rd;
+	std::default_random_engine dre(rd());
+	std::uniform_int_distribution<int> uid(1, 6);
+
+	for (int i = 0; i < 10; ++i)
+	{
+		std::cout << uid(dre) << std::endl;
+	}
+
+	Save("main.cpp", "9월 13일(월).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 02:38:30 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 13일 월요일 (2주 2일)
+// 
+// int를 정렬해 본다 - 버블 정렬
+// int 값을 random하게 생성하는 방법
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <string>
+#include <random>
+#include "save.h"
+
+// [문제] [1, 1000]임의의 값을 갖는 정수 10000개를 생성하라.
+// 생성한 정수의 값을 화면에 출력하라.
+// 정수를 오름차순으로 정렬하라.
+// 정렬한 정수를 화면에 출력하라.
+
+int main()
+{
+	int num[10000];
+
+	std::random_device rd;
+	std::default_random_engine dre(rd());
+	std::uniform_int_distribution<int> uid(1, 1000);
+
+	for (int i = 0; i < std::size(num); ++i)
+	{
+		num[i] = uid(dre);
+	}
+
+	std::cout << "생성한 정수" << std::endl;
+	for (int n : num)
+	{
+		std::cout << n << "\t";
+	}
+	std::cout << std::endl << std::endl;
+
+	std::cout << "오름차순 정렬" << std::endl;
+
+	for (int i = std::size(num) - 1; i >= 0; --i)
+	{
+		for (int j = 0; j < i; ++j)
+		{
+			if (num[j] > num[j + 1])
+			{
+				int temp{ num[j] };
+				num[j] = num[j + 1];
+				num[j + 1] = temp;
+			}
+		}
+	}
+
+	for (int n : num)
+	{
+		std::cout << n << "\t";
+	}
+	std::cout << std::endl;
+
+	Save("main.cpp", "9월 13일(월).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 02:39:55 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 13일 월요일 (2주 2일)
+// 
+// int를 정렬해 본다 - 버블 정렬
+// int 값을 random하게 생성하는 방법
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <string>
+#include <random>
+#include "save.h"
+
+// [문제] [1, 1000]임의의 값을 갖는 정수 10000개를 생성하라.
+// 생성한 정수의 값을 화면에 출력하라.
+// 정수를 내림차순으로 정렬하라.
+// 정렬한 정수를 화면에 출력하라.
+
+int main()
+{
+	int num[10000];
+
+	std::random_device rd;
+	std::default_random_engine dre(rd());
+	std::uniform_int_distribution<int> uid(1, 1000);
+
+	for (int i = 0; i < std::size(num); ++i)
+	{
+		num[i] = uid(dre);
+	}
+
+	std::cout << "생성한 정수" << std::endl;
+	for (int n : num)
+	{
+		std::cout << n << "\t";
+	}
+	std::cout << std::endl << std::endl;
+
+	std::cout << "오름차순 정렬" << std::endl;
+
+	for (int i = std::size(num) - 1; i >= 0; --i)
+	{
+		for (int j = 0; j < i; ++j)
+		{
+			if (num[j] < num[j + 1])
+			{
+				int temp{ num[j] };
+				num[j] = num[j + 1];
+				num[j + 1] = temp;
+			}
+		}
+	}
+
+	for (int n : num)
+	{
+		std::cout << n << "\t";
+	}
+	std::cout << std::endl;
+
+	Save("main.cpp", "9월 13일(월).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 02:49:07 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 15일 수요일 (3주 1일)
+// 
+// C++은 자료를 어떻게 정렬하는가
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <random>
+#include "save.h"
+
+// [문제] 주사위를 10000번 던져 나온 숫자를 메모리에 저장하라.
+// 각 숫자의 출현 확률을 계산하여 화면에 출력하라.
+
+int main()
+{
+	std::random_device rd;
+	std::default_random_engine dre(rd());
+	std::uniform_int_distribution<int> uid(1, 6);
+
+	char num[10000];
+	int per[6]{};
+
+	for (int i = 0; i < std::size(num); ++i)
+	{
+		num[i] = uid(dre);
+
+		switch (num[i])
+		{
+		case 1:
+			++per[0];
+			break;
+		case 2:
+			++per[1];
+			break;
+		case 3:
+			++per[2];
+			break;
+		case 4:
+			++per[3];
+			break;
+		case 5:
+			++per[4];
+			break;
+		case 6:
+			++per[5];
+			break;
+		}
+	}
+
+	for (int i = 0; i < std::size(per); ++i)
+	{
+		std::cout << i + 1 << "의 확률 : " << static_cast<double>(per[i]) / std::size(num) << std::endl;
+	}
+
+	Save("main.cpp", "9월 15일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 02:52:01 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 15일 수요일 (3주 1일)
+// 
+// C++은 자료를 어떻게 정렬하는가
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <random>
+#include "save.h"
+
+// [문제] 주사위를 10000번 던져 나온 숫자를 메모리에 저장하라.
+// 각 숫자의 출현 확률을 계산하여 화면에 출력하라.
+
+int main()
+{
+	std::random_device rd;
+	std::default_random_engine dre(rd());
+	std::uniform_int_distribution<int> uid(1, 6);
+
+	char num[10000];
+	int per[6]{};
+
+	for (int i = 0; i < std::size(num); ++i)
+	{
+		num[i] = uid(dre);
+	}
+
+	for (int n : num)
+	{
+		++per[n - 1];
+	}
+
+	for (int i = 0; i < std::size(per); ++i)
+	{
+		std::cout << i + 1 << "의 확률 : " << static_cast<double>(per[i]) / std::size(num) << std::endl;
+	}
+
+	Save("main.cpp", "9월 15일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 10/20/21 03:03:28 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 15일 수요일 (3주 1일)
+// 
+// C++은 자료를 어떻게 정렬하는가
+// 지역변수의 크기 한계 - default 1MB
+// 전역변수의 크기 한계 - 운영체제가 제공할 수 있는 만큼
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <random>
+#include <fstream>
+#include "save.h"
+
+// [문제] 파일 "점수.txt"에는 학생 100명의 C++ 점수가 저장되어 있다.
+// 평균점수를 계산하여 화면에 출력하라.
+
+int main()
+{
+	int num[100];
+	int aver{};
+	std::ifstream in{ "점수.txt", std::ios::app };
+
+	for (int i = 0; i < 100; ++i)
+	{
+		in >> num[i];
+		aver += num[i];
+	}
+
+	std::cout << "평균 = " << static_cast<double>(aver) / std::size(num) << std::endl;
+
+	Save("main.cpp", "9월 15일(수).txt");
+}
+

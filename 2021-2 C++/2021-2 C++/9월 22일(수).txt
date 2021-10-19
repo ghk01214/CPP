@@ -1,0 +1,180 @@
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 2021-10-20 오전 3:32:38 수요일
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 22일 수요일 (4주 1일)
+// 
+// 함수란 무엇인가> - 실행 파일의 메모리 세그먼트 중에서 CODE에 기록되는 기계어들
+// - 함수의 이름은 메모리의 시작번지를 의미한다.
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <random>
+#include <fstream>
+#include "save.h"
+
+// [문제] 
+
+int add(int a, int b);
+int sub(int a, int b);
+
+int main()
+{
+	// 함수형 포인터
+	// 자료형 변수 = add;
+	int (*f)(int, int) = add;
+	f = sub;
+
+	Save("main.cpp", "9월 22일(수).txt");
+}
+
+int add(int a, int b)
+{
+	return a + b;
+}
+
+int sub(int a, int b)
+{
+	return a - b;
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 2021-10-20 오전 3:33:54 수요일
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 22일 수요일 (4주 1일)
+// 
+// 함수란 무엇인가> - 실행 파일의 메모리 세그먼트 중에서 CODE에 기록되는 기계어들
+// - 함수의 이름은 메모리의 시작번지를 의미한다.
+// auto - 컴파일러가 자료형을 유추하도록 한다
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <random>
+#include <fstream>
+#include "save.h"
+
+// [문제] 
+
+int add(int a, int b);
+
+int main()
+{
+	auto f = add;
+	std::cout << f(3, 4) << std::endl;
+
+	Save("main.cpp", "9월 22일(수).txt");
+}
+
+int add(int a, int b)
+{
+	return a + b;
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 2021-10-20 오전 3:36:04 수요일
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 22일 수요일 (4주 1일)
+// 
+// 함수란 무엇인가> - 실행 파일의 메모리 세그먼트 중에서 CODE에 기록되는 기계어들
+// - 함수의 이름은 메모리의 시작번지를 의미한다.
+// auto - 컴파일러가 자료형을 유추하도록 한다
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <random>
+#include <fstream>
+#include "save.h"
+
+// [문제] 
+
+int add(int a, int b);
+
+int main()
+{
+	auto f = add;
+
+	// 자료형의 메모리 크기를 확인하는 방법
+	std::cout << sizeof(f) << std::endl;
+	std::cout << sizeof(int(*)(int, int)) << std::endl;
+
+	// 자료형을 확인하는 키워드
+	std::cout << "f의 자료형 : " << typeid(f).name() << std::endl;
+
+	std::cout << f(3, 4) << std::endl;
+
+	Save("main.cpp", "9월 22일(수).txt");
+}
+
+int add(int a, int b)
+{
+	return a + b;
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 2021-10-20 오전 3:39:02 수요일
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 22일 수요일 (4주 1일)
+// 
+// 함수란 무엇인가> - 실행 파일의 메모리 세그먼트 중에서 CODE에 기록되는 기계어들
+// - 함수의 이름은 메모리의 시작번지를 의미한다.
+// auto - 컴파일러가 자료형을 유추하도록 한다
+// 자료형의 크기 확인 - sizeof
+// 자료형 자체를 확인 - typeid(?).name()
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <random>
+#include <fstream>
+#include "save.h"
+
+// [정리] 내가 부를 일은 없지만 기능만이 필요할 때 사용하는 이름없는 함수 lambda
+// [문제] lambda를 작성하고 호출하라.
+// () -> fuction call operator(함수 호출 연산자)
+
+int main()
+{
+	[]()
+	{
+		std::cout << "lambda" << std::endl;
+	}();
+
+	Save("main.cpp", "9월 22일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 2021-10-20 오전 3:39:22 수요일
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 9월 22일 수요일 (4주 1일)
+// 
+// 함수란 무엇인가> - 실행 파일의 메모리 세그먼트 중에서 CODE에 기록되는 기계어들
+// - 함수의 이름은 메모리의 시작번지를 의미한다.
+// auto - 컴파일러가 자료형을 유추하도록 한다
+// 자료형의 크기 확인 - sizeof
+// 자료형 자체를 확인 - typeid(?).name()
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <random>
+#include <fstream>
+#include "save.h"
+
+// [정리] 내가 부를 일은 없지만 기능만이 필요할 때 사용하는 이름없는 함수 lambda
+// [문제] lambda를 작성하고 호출하라.
+// () -> fuction call operator(함수 호출 연산자)
+
+int main()
+{
+	auto f = []()
+	{
+		std::cout << "lambda" << std::endl;
+	};
+
+	f();
+
+	Save("main.cpp", "9월 22일(수).txt");
+}
+
