@@ -1,25 +1,54 @@
 //━━━━━━━━━━━━━━━━━━━━━━━━
-// 9월 27일 월요일 (4주 2일)
+// 10월 13일 수요일 (7주 1일)
 // 
-// 자료형과 변수 - 지역, 전역, 동적할당
+// 멤버변수가 private이여야 하는 이유를 살펴볼 수 있는 클래스를 작성하면서
+// Object Oriented Programming의 개념을 엿본다.
 //━━━━━━━━━━━━━━━━━━━━━━━━
 
 #include <iostream>
-#include <random>
-#include <fstream>
 #include "save.h"
 
-// 전역 변수는 CODE 영역에 작성되며 CODE 영역은 메모리의 낮은 번지에 생성
-// 지역 변수는 STACK 영역에 작성되며 STACK 영역은 메모리의 높은 번지에 생성되서 낮은 번지로 넓혀간다.
-// new (자료형) 동작은 시스템에게 (자료형) 만큼의 메모리를 달라는 동작이다.
-// 시스템은 관리하는 메모리 중에서 요청하는 크기만큼 비어있는 공간이 있다면
-// HEAP에서 해당 메모리를 사용중으로 표시하고 그 시작 번지를 리턴한다.
+// [문제] main의 코드가 문제없이 실행되도록 class를 정의하고 모든 관찰 메세지를 출력하라
 
-// [문제] 
+class Dragon
+{
+public:
+	Dragon();
+	~Dragon();
+	Dragon(const Dragon& other);
+	Dragon& operator=(const Dragon& other);
+};
+
+Dragon::Dragon()
+{
+	std::cout << "디폴트 생성자" << std::endl;
+}
+
+Dragon::~Dragon()
+{
+	std::cout << "소멸자"
+}
+
+Dragon::Dragon(const Dragon& other)
+{
+	std::cout << "복사생성자" << std::endl;
+
+
+}
+
+Dragon& Dragon::operator=(const Dragon& other)
+{
+	std::cout << "할당연산자" << std::endl;
+}
 
 int main()
 {
+	Dragon a;
+	Dragon b{ a };
 
+	a = b;
 
-	Save("main.cpp", "9월 27일(월).txt");
+	Save("main.cpp", "10월 13일(수).txt");
 }
+
+

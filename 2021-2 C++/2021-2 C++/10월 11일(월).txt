@@ -1,0 +1,452 @@
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+ÀúÀå½Ã°£: 2021-10-20 ¿ÀÈÄ 2:42:53 ¼ö¿äÀÏ
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// 10¿ù 11ÀÏ ¿ù¿äÀÏ (6ÁÖ 2ÀÏ)
+// 
+// class/struct - »ç¿ëÀÚ Á¤ÀÇ ÀÚ·áÇü(°´Ã¼¸¦ Âï¾î ³»´Â Æ²)
+// - struct¿Í class Â÷ÀÌ
+// 
+// special µ¿ÀÛ
+// - °´Ã¼°¡ »ý¼ºµÇ¾ú´Ù
+// - °´Ã¼°¡ ¼Ò¸êµÇ¾ú´Ù
+// - °´Ã¼°¡ º¹»çµÇ¾ú´Ù
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+#include <iostream>
+#include "save.h"
+
+// [¹®Á¦] 
+
+struct Point2D
+{
+	int x{};
+	int y{};
+
+	// constructor »ý¼ºÀÚ
+	Point2D()
+	{
+		std::cout << "µðÆúÆ® »ý¼º : ";
+		show();
+	}
+	
+	Point2D(int x, int y) : x(x), y(y)
+	{
+		std::cout << "ÀÎÀÚ·Î »ý¼º : ";
+		show();
+	}
+
+	// destructor ¼Ò¸êÀÚ - ¸Þ¸ð¸®°¡ ¼Ò¸êÇÏ´Â °ÍÀÌ ¾Æ´Ï´Ù.
+	// ¸Þ¸ð¸®°¡ ÇØÁ¦µÇ±â Á÷Àü¿¡ È£ÃâµÇ´Â ÇÔ¼öÀÌ´Ù.
+	~Point2D()
+	{
+		std::cout << "¼Ò¸êÀÚ - ";
+		show();
+	}
+
+	// copy constructor º¹»ç»ý¼ºÀÚ
+	Point2D(const Point2D& other)
+	{
+		std::cout << "º¹»ç»ý¼ºÀÚ : ";
+		show();
+	}
+
+	void show()
+	{
+		std::cout << "(" << x << ", " << y << ")" << std::endl;
+	}
+};
+
+int main()
+{
+	Point2D a;
+	Point2D b{ a };	// b °´Ã¼°¡ a¸¦ º¹»çÇÏ¿© »ý¼º
+
+	Save("main.cpp", "9¿ù 27ÀÏ(¿ù).txt");
+}
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+ÀúÀå½Ã°£: 2021-10-20 ¿ÀÈÄ 2:43:46 ¼ö¿äÀÏ
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// 10¿ù 11ÀÏ ¿ù¿äÀÏ (6ÁÖ 2ÀÏ)
+// 
+// class/struct - »ç¿ëÀÚ Á¤ÀÇ ÀÚ·áÇü(°´Ã¼¸¦ Âï¾î ³»´Â Æ²)
+// - struct¿Í class Â÷ÀÌ
+// 
+// special µ¿ÀÛ
+// - °´Ã¼°¡ »ý¼ºµÇ¾ú´Ù
+// - °´Ã¼°¡ ¼Ò¸êµÇ¾ú´Ù
+// - °´Ã¼°¡ º¹»çµÇ¾ú´Ù
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+#include <iostream>
+#include "save.h"
+
+// [¹®Á¦] 
+
+struct Point2D
+{
+	int x{};
+	int y{};
+
+	// constructor »ý¼ºÀÚ
+	Point2D()
+	{
+		std::cout << "µðÆúÆ® »ý¼º : ";
+		show();
+	}
+	
+	Point2D(int x, int y) : x(x), y(y)
+	{
+		std::cout << "ÀÎÀÚ·Î »ý¼º : ";
+		show();
+	}
+
+	// destructor ¼Ò¸êÀÚ - ¸Þ¸ð¸®°¡ ¼Ò¸êÇÏ´Â °ÍÀÌ ¾Æ´Ï´Ù.
+	// ¸Þ¸ð¸®°¡ ÇØÁ¦µÇ±â Á÷Àü¿¡ È£ÃâµÇ´Â ÇÔ¼öÀÌ´Ù.
+	~Point2D()
+	{
+		std::cout << "¼Ò¸êÀÚ - ";
+		show();
+	}
+
+	// copy constructor º¹»ç»ý¼ºÀÚ
+	Point2D(const Point2D& other)
+	{
+		std::cout << "º¹»ç»ý¼ºÀÚ : ";
+		show();
+	}
+
+	void show()
+	{
+		std::cout << "(" << x << ", " << y << ")" << std::endl;
+	}
+};
+
+int main()
+{
+	Point2D a{ 10, 20 };
+	Point2D b{ a };	// b °´Ã¼°¡ a¸¦ º¹»çÇÏ¿© »ý¼º
+
+	Save("main.cpp", "9¿ù 27ÀÏ(¿ù).txt");
+}
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+ÀúÀå½Ã°£: 2021-10-20 ¿ÀÈÄ 2:44:15 ¼ö¿äÀÏ
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// 10¿ù 11ÀÏ ¿ù¿äÀÏ (6ÁÖ 2ÀÏ)
+// 
+// class/struct - »ç¿ëÀÚ Á¤ÀÇ ÀÚ·áÇü(°´Ã¼¸¦ Âï¾î ³»´Â Æ²)
+// - struct¿Í class Â÷ÀÌ
+// 
+// special µ¿ÀÛ
+// - °´Ã¼°¡ »ý¼ºµÇ¾ú´Ù
+// - °´Ã¼°¡ ¼Ò¸êµÇ¾ú´Ù
+// - °´Ã¼°¡ º¹»çµÇ¾ú´Ù
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+#include <iostream>
+#include "save.h"
+
+// [¹®Á¦] 
+
+struct Point2D
+{
+	int x{};
+	int y{};
+
+	// constructor »ý¼ºÀÚ
+	Point2D()
+	{
+		std::cout << "µðÆúÆ® »ý¼º : ";
+		show();
+	}
+	
+	Point2D(int x, int y) : x(x), y(y)
+	{
+		std::cout << "ÀÎÀÚ·Î »ý¼º : ";
+		show();
+	}
+
+	// destructor ¼Ò¸êÀÚ - ¸Þ¸ð¸®°¡ ¼Ò¸êÇÏ´Â °ÍÀÌ ¾Æ´Ï´Ù.
+	// ¸Þ¸ð¸®°¡ ÇØÁ¦µÇ±â Á÷Àü¿¡ È£ÃâµÇ´Â ÇÔ¼öÀÌ´Ù.
+	~Point2D()
+	{
+		std::cout << "¼Ò¸êÀÚ - ";
+		show();
+	}
+
+	// copy constructor º¹»ç»ý¼ºÀÚ
+	Point2D(const Point2D& other) : x(other.x), y(other.y)
+	{
+		std::cout << "º¹»ç»ý¼ºÀÚ : ";
+		show();
+	}
+
+	void show()
+	{
+		std::cout << "(" << x << ", " << y << ")" << std::endl;
+	}
+};
+
+int main()
+{
+	Point2D a{ 10, 20 };
+	Point2D b{ a };	// b °´Ã¼°¡ a¸¦ º¹»çÇÏ¿© »ý¼º
+
+	Save("main.cpp", "9¿ù 27ÀÏ(¿ù).txt");
+}
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+ÀúÀå½Ã°£: 2021-10-20 ¿ÀÈÄ 2:52:09 ¼ö¿äÀÏ
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// 10¿ù 11ÀÏ ¿ù¿äÀÏ (6ÁÖ 2ÀÏ)
+// 
+// class/struct - »ç¿ëÀÚ Á¤ÀÇ ÀÚ·áÇü(°´Ã¼¸¦ Âï¾î ³»´Â Æ²)
+// - struct¿Í class Â÷ÀÌ
+// 
+// special µ¿ÀÛ
+// - °´Ã¼°¡ »ý¼ºµÇ¾ú´Ù
+// - °´Ã¼°¡ ¼Ò¸êµÇ¾ú´Ù
+// - °´Ã¼°¡ º¹»çµÇ¾ú´Ù
+// - °´Ã¼°¡ ÇÒ´çµÇ¾ú´Ù
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+#include <iostream>
+#include "save.h"
+
+// [¹®Á¦] 
+
+struct Point2D
+{
+	int x{};
+	int y{};
+
+	// constructor »ý¼ºÀÚ
+	Point2D()
+	{
+		std::cout << "µðÆúÆ® »ý¼º : ";
+		show();
+	}
+	
+	Point2D(int x, int y) : x(x), y(y)
+	{
+		std::cout << "ÀÎÀÚ·Î »ý¼º : ";
+		show();
+	}
+
+	// destructor ¼Ò¸êÀÚ - ¸Þ¸ð¸®°¡ ¼Ò¸êÇÏ´Â °ÍÀÌ ¾Æ´Ï´Ù.
+	// ¸Þ¸ð¸®°¡ ÇØÁ¦µÇ±â Á÷Àü¿¡ È£ÃâµÇ´Â ÇÔ¼öÀÌ´Ù.
+	~Point2D()
+	{
+		std::cout << "¼Ò¸êÀÚ - ";
+		show();
+	}
+
+	// copy constructor º¹»ç»ý¼ºÀÚ
+	Point2D(const Point2D& other) : x(other.x), y(other.y)
+	{
+		std::cout << "º¹»ç»ý¼ºÀÚ : ";
+		show();
+	}
+
+	// assginment operator ÇÒ´ç¿¬»êÀÚ
+	// c = a
+	Point2D& operator=(const Point2D& other)
+	{
+		x = other.x;
+		y = other.y;
+
+		std::cout << "ÇÒ´ç¿¬»êÀÚ : ";
+		show();
+
+		return *this;
+	}
+
+	void show()
+	{
+		std::cout << "(" << x << ", " << y << ")" << std::endl;
+	}
+};
+
+int main()
+{
+	Point2D a{ 10, 20 };
+	Point2D b{ a };	// b °´Ã¼°¡ a¸¦ º¹»çÇÏ¿© »ý¼º
+	Point2D c;
+
+	c = a;		// ÀÌ ¼ø°£Àº cÀÇ ¸Þ¸ð¸®¸¦ aÀÇ ¸Þ¸ð¸®¿Í °°Àº ³»¿ëÀ¸·Î Ã¤¿ö¶ó´Â ¸í·É
+				// ÀÌ ¶§ ÇÒ´ç¿¬»êÀÚ°¡ È£ÃâµÈ´Ù.
+
+	c.show();
+
+	Save("main.cpp", "10¿ù 11ÀÏ(¿ù).txt");
+}
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+ÀúÀå½Ã°£: 2021-10-20 ¿ÀÈÄ 2:55:37 ¼ö¿äÀÏ
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// 10¿ù 11ÀÏ ¿ù¿äÀÏ (6ÁÖ 2ÀÏ)
+// 
+// class/struct - »ç¿ëÀÚ Á¤ÀÇ ÀÚ·áÇü(°´Ã¼¸¦ Âï¾î ³»´Â Æ²)
+// - struct¿Í class Â÷ÀÌ
+// 
+// special µ¿ÀÛ
+// - °´Ã¼°¡ »ý¼ºµÇ¾ú´Ù
+// - °´Ã¼°¡ ¼Ò¸êµÇ¾ú´Ù
+// - °´Ã¼°¡ º¹»çµÇ¾ú´Ù
+// - °´Ã¼°¡ ÇÒ´çµÇ¾ú´Ù
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+#include <iostream>
+#include "save.h"
+
+// [¹®Á¦] 
+
+struct Point2D
+{
+	int x{};
+	int y{};
+
+	// constructor »ý¼ºÀÚ
+	Point2D()
+	{
+		std::cout << "µðÆúÆ® »ý¼º : ";
+		show();
+	}
+	
+	Point2D(int x, int y) : x(x), y(y)
+	{
+		std::cout << "ÀÎÀÚ·Î »ý¼º : ";
+		show();
+	}
+
+	// destructor ¼Ò¸êÀÚ - ¸Þ¸ð¸®°¡ ¼Ò¸êÇÏ´Â °ÍÀÌ ¾Æ´Ï´Ù.
+	// ¸Þ¸ð¸®°¡ ÇØÁ¦µÇ±â Á÷Àü¿¡ È£ÃâµÇ´Â ÇÔ¼öÀÌ´Ù.
+	~Point2D()
+	{
+		std::cout << "¼Ò¸êÀÚ - ";
+		show();
+	}
+
+	// copy constructor º¹»ç»ý¼ºÀÚ
+	Point2D(const Point2D& other) : x(other.x), y(other.y)
+	{
+		std::cout << "º¹»ç»ý¼ºÀÚ : ";
+		show();
+	}
+
+	// assginment operator ÇÒ´ç¿¬»êÀÚ
+	// c = a
+	Point2D& operator=(const Point2D& other)
+	{
+		// ÀÚ½ÅÀ» ÀÚ½Å¿¡°Ô ÇÒ´çÇÏ´Â ÀÏÀº ¾ø°Ô ÇÏÀÚ.
+		if (this == &other)
+			return *this;
+
+		x = other.x;
+		y = other.y;
+
+		std::cout << "ÇÒ´ç¿¬»êÀÚ : ";
+		show();
+
+		return *this;
+	}
+
+	void show()
+	{
+		std::cout << "(" << x << ", " << y << ")" << std::endl;
+	}
+};
+
+int main()
+{
+	Point2D a{ 10, 20 };
+	Point2D b{ a };	// b °´Ã¼°¡ a¸¦ º¹»çÇÏ¿© »ý¼º
+	Point2D c;
+
+	c = a;		// ÀÌ ¼ø°£Àº cÀÇ ¸Þ¸ð¸®¸¦ aÀÇ ¸Þ¸ð¸®¿Í °°Àº ³»¿ëÀ¸·Î Ã¤¿ö¶ó´Â ¸í·É
+				// ÀÌ ¶§ ÇÒ´ç¿¬»êÀÚ°¡ È£ÃâµÈ´Ù.
+
+	c.show();
+
+	Save("main.cpp", "10¿ù 11ÀÏ(¿ù).txt");
+}
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+ÀúÀå½Ã°£: 2021-10-20 ¿ÀÈÄ 3:01:23 ¼ö¿äÀÏ
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// 10¿ù 11ÀÏ ¿ù¿äÀÏ (6ÁÖ 2ÀÏ)
+// 
+// class/struct - »ç¿ëÀÚ Á¤ÀÇ ÀÚ·áÇü(°´Ã¼¸¦ Âï¾î ³»´Â Æ²)
+// - struct¿Í class Â÷ÀÌ
+//	 struct´Â ¸â¹öº¯¼ö¸¦ °¨ÃßÁö ¾Ê´Â´Ù
+//	 class´Â ¸â¹öº¯¼ö¸¦ °¨Ãß¾î class ¹Ù±ù¿¡¼­ ¸â¹öº¯¼ö¿¡ Á¢±ÙÇÏÁö ¸ø ÇÑ´Ù.
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+#include <iostream>
+#include "save.h"
+
+// [¹®Á¦] 
+
+class Point2D
+{
+private:		// access specifier or access modifier : Á¢±ÙÁöÁ¤ÀÚ
+	int x;
+	int y;
+public:
+	void show()
+	{
+		std::cout << x << ", " << y << std::endl;
+	}
+};
+
+int main()
+{
+
+
+	Save("main.cpp", "10¿ù 11ÀÏ(¿ù).txt");
+}
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+ÀúÀå½Ã°£: 2021-10-20 ¿ÀÈÄ 3:02:22 ¼ö¿äÀÏ
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// 10¿ù 11ÀÏ ¿ù¿äÀÏ (6ÁÖ 2ÀÏ)
+// 
+// class/struct - »ç¿ëÀÚ Á¤ÀÇ ÀÚ·áÇü(°´Ã¼¸¦ Âï¾î ³»´Â Æ²)
+// - struct¿Í class Â÷ÀÌ
+//	 struct´Â default public member
+//	 class´Â default private member
+//	 class - Á¤º¸Àº´Ð(information hiding) Ä¸½¶È­
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+#include <iostream>
+#include "save.h"
+
+// [¹®Á¦] 
+
+class Point2D
+{
+private:		// access specifier or access modifier : Á¢±ÙÁöÁ¤ÀÚ
+	int x;
+	int y;
+public:
+	void show()
+	{
+		std::cout << x << ", " << y << std::endl;
+	}
+};
+
+int main()
+{
+
+
+	Save("main.cpp", "10¿ù 11ÀÏ(¿ù).txt");
+}
+
