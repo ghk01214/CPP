@@ -1,0 +1,633 @@
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+ÀúÀå½Ã°£: 2021-11-04 ¿ÀÈÄ 10:10:36 ¸ñ¿äÀÏ
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// 10¿ù 27ÀÏ ¼ö¿äÀÏ (9ÁÖ 1ÀÏ)
+// 
+// Ç¥ÁØ string°ú À¯»çÇÑ ±â´ÉÀ» ÇÏ´Â StringÀ» ¸¸µé¸ç class ¼³°è¿¡ ÇÊ¿äÇÑ °ÍµéÀ» ÇÐ½À
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+#include <iostream>
+#include <string>
+#include "save.h"
+
+// [¹®Á¦] ´ÙÀ½ main()ÀÌ ¹®Á¦ ¾øÀÌ ½ÇÇàµÇµµ·Ï class StringÀ» ÄÚµùÇÏ¶ó.
+// main()ÀÌ ¼öÁ¤µÇ¸é ¾È µÈ´Ù.
+
+class String
+{
+public:
+	String(const char* str);
+	~String();
+public:
+	void show();
+public:
+	size_t size() const { return num; }
+public:
+	String& operator=(const String& other);
+	friend std::ostream& operator<<(std::ostream& os, const String& s);
+
+private:
+	size_t num{};	// ÀúÀåÇÑ ±ÛÀÚ ¼ö
+	char* p{};		// ±ÛÀÚ°¡ ÀÖ´Â ¸Þ¸ð¸®
+};
+
+String::String(const char* str) : num(strlen(str))
+{
+	p = new char[num];
+	memcpy(p, str, num);
+
+	std::cout << "»ý¼ºÀÚ(const char*) - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+}
+
+String::~String()
+{
+	std::cout << "¼Ò¸êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+
+	delete[] p;
+}
+
+void String::show()
+{
+	for (int i = 0; i < num; ++i)
+	{
+		std::cout << p[i];
+	}
+
+	std::cout << std::endl;
+}
+
+String& String::operator=(const String& other)
+{
+	if (this == &other)
+	{
+		return *this;
+	}
+
+	delete[] p;
+	num = other.num;
+	p = new char[num];
+
+	memcpy(p, other.p, num);
+
+	std::cout << "ÇÒ´ç¿¬»êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+
+	return *this;
+}
+
+std::ostream& operator<<(std::ostream& os, const String& s)
+{
+	for (int i = 0; i < s.num; ++i)
+	{
+		os << s.p[i];
+	}
+
+	return os;
+}
+
+int main()
+{
+	String s{ "¾È³çÇÏ¼¼¿ä" };
+
+	std::cout << s << std::endl;
+
+	Save("main.cpp", "10¿ù 13ÀÏ(¼ö).txt");
+}
+
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+ÀúÀå½Ã°£: 2021-11-04 ¿ÀÈÄ 10:14:07 ¸ñ¿äÀÏ
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// 10¿ù 27ÀÏ ¼ö¿äÀÏ (9ÁÖ 1ÀÏ)
+// 
+// Ç¥ÁØ string°ú À¯»çÇÑ ±â´ÉÀ» ÇÏ´Â StringÀ» ¸¸µé¸ç class ¼³°è¿¡ ÇÊ¿äÇÑ °ÍµéÀ» ÇÐ½À
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+#include <iostream>
+#include <string>
+#include "save.h"
+
+// [¹®Á¦] ´ÙÀ½ main()ÀÌ ¹®Á¦ ¾øÀÌ ½ÇÇàµÇµµ·Ï class StringÀ» ÄÚµùÇÏ¶ó.
+// main()ÀÌ ¼öÁ¤µÇ¸é ¾È µÈ´Ù.
+
+class String
+{
+public:
+	String() { std::cout << "µðÆúÆ® »ý¼ºÀÚ() - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl; };
+	String(const char* str);
+	~String();
+public:
+	void show();
+public:
+	size_t size() const { return num; }
+public:
+	String& operator=(const String& other);
+	friend std::ostream& operator<<(std::ostream& os, const String& s);
+
+private:
+	size_t num{};	// ÀúÀåÇÑ ±ÛÀÚ ¼ö
+	char* p{};		// ±ÛÀÚ°¡ ÀÖ´Â ¸Þ¸ð¸®
+};
+
+String::String(const char* str) : num(strlen(str))
+{
+	p = new char[num];
+	memcpy(p, str, num);
+
+	std::cout << "»ý¼ºÀÚ(const char*) - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+}
+
+String::~String()
+{
+	std::cout << "¼Ò¸êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+
+	delete[] p;
+}
+
+void String::show()
+{
+	for (int i = 0; i < num; ++i)
+	{
+		std::cout << p[i];
+	}
+
+	std::cout << std::endl;
+}
+
+String& String::operator=(const String& other)
+{
+	if (this == &other)
+	{
+		return *this;
+	}
+
+	delete[] p;
+	num = other.num;
+	p = new char[num];
+
+	memcpy(p, other.p, num);
+
+	std::cout << "ÇÒ´ç¿¬»êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+
+	return *this;
+}
+
+std::ostream& operator<<(std::ostream& os, const String& s)
+{
+	for (int i = 0; i < s.num; ++i)
+	{
+		os << s.p[i];
+	}
+
+	return os;
+}
+
+int main()
+{
+	String s1;
+	String s2{ "Ç¥ÁØ string°ú °°Àº µ¿ÀÛÀ» ÇÏ´Â Å¬·¡½º" };
+
+	//s1 = s2;
+
+	std::cout << s1 << std::endl;
+	std::cout << s2 << std::endl;
+
+	Save("main.cpp", "10¿ù 13ÀÏ(¼ö).txt");
+}
+
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+ÀúÀå½Ã°£: 2021-11-04 ¿ÀÈÄ 10:14:21 ¸ñ¿äÀÏ
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// 10¿ù 27ÀÏ ¼ö¿äÀÏ (9ÁÖ 1ÀÏ)
+// 
+// Ç¥ÁØ string°ú À¯»çÇÑ ±â´ÉÀ» ÇÏ´Â StringÀ» ¸¸µé¸ç class ¼³°è¿¡ ÇÊ¿äÇÑ °ÍµéÀ» ÇÐ½À
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+#include <iostream>
+#include <string>
+#include "save.h"
+
+// [¹®Á¦] ´ÙÀ½ main()ÀÌ ¹®Á¦ ¾øÀÌ ½ÇÇàµÇµµ·Ï class StringÀ» ÄÚµùÇÏ¶ó.
+// main()ÀÌ ¼öÁ¤µÇ¸é ¾È µÈ´Ù.
+
+class String
+{
+public:
+	String() { std::cout << "µðÆúÆ® »ý¼ºÀÚ() - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl; };
+	String(const char* str);
+	~String();
+public:
+	void show();
+public:
+	size_t size() const { return num; }
+public:
+	String& operator=(const String& other);
+	friend std::ostream& operator<<(std::ostream& os, const String& s);
+
+private:
+	size_t num{};	// ÀúÀåÇÑ ±ÛÀÚ ¼ö
+	char* p{};		// ±ÛÀÚ°¡ ÀÖ´Â ¸Þ¸ð¸®
+};
+
+String::String(const char* str) : num(strlen(str))
+{
+	p = new char[num];
+	memcpy(p, str, num);
+
+	std::cout << "»ý¼ºÀÚ(const char*) - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+}
+
+String::~String()
+{
+	std::cout << "¼Ò¸êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+
+	delete[] p;
+}
+
+void String::show()
+{
+	for (int i = 0; i < num; ++i)
+	{
+		std::cout << p[i];
+	}
+
+	std::cout << std::endl;
+}
+
+String& String::operator=(const String& other)
+{
+	if (this == &other)
+	{
+		return *this;
+	}
+
+	delete[] p;
+	num = other.num;
+	p = new char[num];
+
+	memcpy(p, other.p, num);
+
+	std::cout << "ÇÒ´ç¿¬»êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+
+	return *this;
+}
+
+std::ostream& operator<<(std::ostream& os, const String& s)
+{
+	for (int i = 0; i < s.num; ++i)
+	{
+		os << s.p[i];
+	}
+
+	return os;
+}
+
+int main()
+{
+	String s1;
+	String s2{ "Ç¥ÁØ string°ú °°Àº µ¿ÀÛÀ» ÇÏ´Â Å¬·¡½º" };
+
+	s1 = s2;
+
+	std::cout << s1 << std::endl;
+	std::cout << s2 << std::endl;
+
+	Save("main.cpp", "10¿ù 13ÀÏ(¼ö).txt");
+}
+
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+ÀúÀå½Ã°£: 2021-11-04 ¿ÀÈÄ 10:16:34 ¸ñ¿äÀÏ
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// 10¿ù 27ÀÏ ¼ö¿äÀÏ (9ÁÖ 1ÀÏ)
+// 
+// Ç¥ÁØ string°ú À¯»çÇÑ ±â´ÉÀ» ÇÏ´Â StringÀ» ¸¸µé¸ç class ¼³°è¿¡ ÇÊ¿äÇÑ °ÍµéÀ» ÇÐ½À
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+#include <iostream>
+#include <string>
+#include "save.h"
+
+// [¹®Á¦] ´ÙÀ½ main()ÀÌ ¹®Á¦ ¾øÀÌ ½ÇÇàµÇµµ·Ï class StringÀ» ÄÚµùÇÏ¶ó.
+// main()ÀÌ ¼öÁ¤µÇ¸é ¾È µÈ´Ù.
+
+class String
+{
+public:
+	String() { std::cout << "µðÆúÆ® »ý¼ºÀÚ() - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl; };
+	String(const char* str);
+	~String();
+public:
+	void show();
+public:
+	size_t size() const { return num; }
+public:
+	String& operator=(const String& other);
+	friend std::ostream& operator<<(std::ostream& os, const String& s);
+
+private:
+	size_t num{};	// ÀúÀåÇÑ ±ÛÀÚ ¼ö
+	char* p{};		// ±ÛÀÚ°¡ ÀÖ´Â ¸Þ¸ð¸®
+};
+
+String::String(const char* str) : num(strlen(str))
+{
+	p = new char[num];
+	memcpy(p, str, num);
+
+	std::cout << "»ý¼ºÀÚ(const char*) - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+}
+
+String::~String()
+{
+	std::cout << "¼Ò¸êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+
+	delete[] p;
+}
+
+void String::show()
+{
+	for (int i = 0; i < num; ++i)
+	{
+		std::cout << p[i];
+	}
+
+	std::cout << std::endl;
+}
+
+String& String::operator=(const String& other)
+{
+	if (this == &other)
+	{
+		return *this;
+	}
+
+	delete[] p;
+	num = other.num;
+	p = new char[num];
+
+	memcpy(p, other.p, num);
+
+	std::cout << "ÇÒ´ç¿¬»êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+
+	return *this;
+}
+
+std::ostream& operator<<(std::ostream& os, const String& s)
+{
+	for (int i = 0; i < s.num; ++i)
+	{
+		os << s.p[i];
+	}
+
+	return os;
+}
+
+int main()
+{
+	String s1{ "Ç¥ÁØ string°ú °°Àº µ¿ÀÛÀ» ÇÏ´Â Å¬·¡½º" };
+	String s2 = s1;
+
+	std::cout << s1 << std::endl;
+	std::cout << s2 << std::endl;
+
+	Save("main.cpp", "10¿ù 13ÀÏ(¼ö).txt");
+}
+
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+ÀúÀå½Ã°£: 2021-11-04 ¿ÀÈÄ 10:20:47 ¸ñ¿äÀÏ
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// 10¿ù 27ÀÏ ¼ö¿äÀÏ (9ÁÖ 1ÀÏ)
+// 
+// Ç¥ÁØ string°ú À¯»çÇÑ ±â´ÉÀ» ÇÏ´Â StringÀ» ¸¸µé¸ç class ¼³°è¿¡ ÇÊ¿äÇÑ °ÍµéÀ» ÇÐ½À
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+#include <iostream>
+#include <string>
+#include "save.h"
+
+// [¹®Á¦] ´ÙÀ½ main()ÀÌ ¹®Á¦ ¾øÀÌ ½ÇÇàµÇµµ·Ï class StringÀ» ÄÚµùÇÏ¶ó.
+// main()ÀÌ ¼öÁ¤µÇ¸é ¾È µÈ´Ù.
+
+class String
+{
+public:
+	String() { std::cout << "µðÆúÆ® »ý¼ºÀÚ() - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl; };
+	String(const char* str);
+	String(const String& other);
+	~String();
+public:
+	void show();
+public:
+	size_t size() const { return num; }
+public:
+	String& operator=(const String& other);
+	friend std::ostream& operator<<(std::ostream& os, const String& s);
+
+private:
+	size_t num{};	// ÀúÀåÇÑ ±ÛÀÚ ¼ö
+	char* p{};		// ±ÛÀÚ°¡ ÀÖ´Â ¸Þ¸ð¸®
+};
+
+String::String(const char* str) : num(strlen(str))
+{
+	p = new char[num];
+	memcpy(p, str, num);
+
+	std::cout << "»ý¼ºÀÚ(const char*) - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+}
+
+String::String(const String& other) : num(other.num), p(new char[num])
+{
+	memcpy(p, other.p, num);
+
+	std::cout << "º¹»ç»ý¼ºÀÚ(const String&) - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+}
+
+String::~String()
+{
+	std::cout << "¼Ò¸êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+
+	delete[] p;
+}
+
+void String::show()
+{
+	for (int i = 0; i < num; ++i)
+	{
+		std::cout << p[i];
+	}
+
+	std::cout << std::endl;
+}
+
+String& String::operator=(const String& other)
+{
+	if (this == &other)
+	{
+		return *this;
+	}
+
+	delete[] p;
+	num = other.num;
+	p = new char[num];
+
+	memcpy(p, other.p, num);
+
+	std::cout << "ÇÒ´ç¿¬»êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+
+	return *this;
+}
+
+std::ostream& operator<<(std::ostream& os, const String& s)
+{
+	for (int i = 0; i < s.num; ++i)
+	{
+		os << s.p[i];
+	}
+
+	return os;
+}
+
+int main()
+{
+	String s1{ "Ç¥ÁØ string°ú °°Àº µ¿ÀÛÀ» ÇÏ´Â Å¬·¡½º" };
+	String s2 = s1;
+
+	std::cout << s1 << std::endl;
+	std::cout << s2 << std::endl;
+
+	Save("main.cpp", "10¿ù 27ÀÏ(¼ö).txt");
+}
+
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+ÀúÀå½Ã°£: 2021-11-04 ¿ÀÈÄ 10:28:57 ¸ñ¿äÀÏ
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// 10¿ù 27ÀÏ ¼ö¿äÀÏ (9ÁÖ 1ÀÏ)
+// 
+// Ç¥ÁØ string°ú À¯»çÇÑ ±â´ÉÀ» ÇÏ´Â StringÀ» ¸¸µé¸ç class ¼³°è¿¡ ÇÊ¿äÇÑ °ÍµéÀ» ÇÐ½À
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+#include <iostream>
+#include <string>
+#include "save.h"
+
+// [¹®Á¦] ´ÙÀ½ main()ÀÌ ¹®Á¦ ¾øÀÌ ½ÇÇàµÇµµ·Ï class StringÀ» ÄÚµùÇÏ¶ó.
+// main()ÀÌ ¼öÁ¤µÇ¸é ¾È µÈ´Ù.
+
+class String
+{
+public:
+	String() { std::cout << "µðÆúÆ® »ý¼ºÀÚ() - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl; };
+	String(const char* str);
+	String(const String& other);
+	~String();
+public:
+	void show();
+public:
+	size_t size() const { return num; }
+public:
+	String& operator=(const String& other);
+	String operator+(const String& rhs) const;
+	friend std::ostream& operator<<(std::ostream& os, const String& s);
+
+private:
+	size_t num{};	// ÀúÀåÇÑ ±ÛÀÚ ¼ö
+	char* p{};		// ±ÛÀÚ°¡ ÀÖ´Â ¸Þ¸ð¸®
+};
+
+String::String(const char* str) : num(strlen(str))
+{
+	p = new char[num];
+	memcpy(p, str, num);
+
+	std::cout << "»ý¼ºÀÚ(const char*) - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+}
+
+String::String(const String& other) : num(other.num), p(new char[num])
+{
+	memcpy(p, other.p, num);
+
+	std::cout << "º¹»ç»ý¼ºÀÚ(const String&) - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+}
+
+String::~String()
+{
+	std::cout << "¼Ò¸êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+
+	delete[] p;
+}
+
+void String::show()
+{
+	for (int i = 0; i < num; ++i)
+	{
+		std::cout << p[i];
+	}
+
+	std::cout << std::endl;
+}
+
+String& String::operator=(const String& other)
+{
+	if (this == &other)
+	{
+		return *this;
+	}
+
+	delete[] p;
+	num = other.num;
+	p = new char[num];
+
+	memcpy(p, other.p, num);
+
+	std::cout << "ÇÒ´ç¿¬»êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+
+	return *this;
+}
+
+String String::operator+(const String& rhs) const
+{
+	String temp;
+
+	temp.num = num + rhs.num;
+	temp.p = new char[temp.num];
+
+	memcpy(temp.p, p, num);
+	memcpy(temp.p + num, rhs.p, rhs.num);
+
+	return temp;
+}
+
+std::ostream& operator<<(std::ostream& os, const String& s)
+{
+	for (int i = 0; i < s.num; ++i)
+	{
+		os << s.p[i];
+	}
+
+	return os;
+}
+
+int main()
+{
+	String s1{ "C¾ð¾î´Â char*·Î ¹®ÀÚ¿­À» ´Ù·é´Ù" };
+	String s2{ " - C++ ¾ð¾î´Â stringÀ» »ç¿ëÇÑ´Ù" };
+
+	String s3 = s1 + s2;
+
+	std::cout << "s3ÀÇ ±ÛÀÚ ¼ö : " << s3.size() << std::endl;
+	std::cout << s3 << std::endl;
+
+	Save("main.cpp", "10¿ù 27ÀÏ(¼ö).txt");
+}
+
+

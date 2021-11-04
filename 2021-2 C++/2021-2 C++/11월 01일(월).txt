@@ -1,0 +1,556 @@
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 2021-11-04 오후 10:51:42 목요일
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 11월 01일 월요일 (9주 2일)
+// 
+// 표준 string과 유사한 기능을 하는 String을 만들며 class 설계에 필요한 것들을 학습
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <string>
+#include "save.h"
+
+class String
+{
+public:
+	String() { std::cout << "디폴트 생성자() - 갯수 : " << num << ", 주소 : " << static_cast<void*>(p) << std::endl; };
+	String(const char* str);
+	String(const String& other);
+	~String();
+public:
+	void show();
+public:
+	size_t size() const { return num; }
+public:
+	String& operator=(const String& other);
+	String operator+(const String& rhs) const;
+	friend std::ostream& operator<<(std::ostream& os, const String& s);
+
+private:
+	size_t num{};	// 저장한 글자 수
+	char* p{};		// 글자가 있는 메모리
+};
+
+String::String(const char* str) : num(strlen(str))
+{
+	p = new char[num];
+	memcpy(p, str, num);
+
+	std::cout << "생성자(const char*) - 갯수 : " << num << ", 주소 : " << static_cast<void*>(p) << std::endl;
+}
+
+String::String(const String& other) : num(other.num), p(new char[num])
+{
+	memcpy(p, other.p, num);
+
+	std::cout << "복사생성자(const String&) - 갯수 : " << num << ", 주소 : " << static_cast<void*>(p) << std::endl;
+}
+
+String::~String()
+{
+	std::cout << "소멸자 - 갯수 : " << num << ", 주소 : " << static_cast<void*>(p) << std::endl;
+
+	delete[] p;
+}
+
+void String::show()
+{
+	for (int i = 0; i < num; ++i)
+	{
+		std::cout << p[i];
+	}
+
+	std::cout << std::endl;
+}
+
+String& String::operator=(const String& other)
+{
+	if (this == &other)
+	{
+		return *this;
+	}
+
+	delete[] p;
+	num = other.num;
+	p = new char[num];
+
+	memcpy(p, other.p, num);
+
+	std::cout << "복사 할당연산자 - 갯수 : " << num << ", 주소 : " << static_cast<void*>(p) << std::endl;
+
+	return *this;
+}
+
+String String::operator+(const String& rhs) const
+{
+	String temp;
+
+	temp.num = num + rhs.num;
+	temp.p = new char[temp.num];
+
+	memcpy(temp.p, p, num);
+	memcpy(temp.p + num, rhs.p, rhs.num);
+
+	return temp;
+}
+
+std::ostream& operator<<(std::ostream& os, const String& s)
+{
+	for (int i = 0; i < s.num; ++i)
+	{
+		os << s.p[i];
+	}
+
+	return os;
+}
+
+// 자원을 관리하는 클래스는 자기가 관리하는 자원을 이동시킬 수도 있다.
+// 이동은 복사보다 효율적인 동작이 될 수 있다.
+
+int main()
+{
+	std::string s1{ "나는 s1이 관리하는 자원입니다" };
+	std::string s2 = std::move(s1);
+
+	std::cout << "s1 : " << s1 << std::endl;
+	std::cout << "s2 : " << s2 << std::endl;
+
+	Save("main.cpp", "11월 01일(월).txt");
+}
+
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 2021-11-04 오후 10:51:51 목요일
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 11월 01일 월요일 (9주 2일)
+// 
+// 표준 string과 유사한 기능을 하는 String을 만들며 class 설계에 필요한 것들을 학습
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <string>
+#include "save.h"
+
+class String
+{
+public:
+	String() { std::cout << "디폴트 생성자() - 갯수 : " << num << ", 주소 : " << static_cast<void*>(p) << std::endl; };
+	String(const char* str);
+	String(const String& other);
+	~String();
+public:
+	void show();
+public:
+	size_t size() const { return num; }
+public:
+	String& operator=(const String& other);
+	String operator+(const String& rhs) const;
+	friend std::ostream& operator<<(std::ostream& os, const String& s);
+
+private:
+	size_t num{};	// 저장한 글자 수
+	char* p{};		// 글자가 있는 메모리
+};
+
+String::String(const char* str) : num(strlen(str))
+{
+	p = new char[num];
+	memcpy(p, str, num);
+
+	std::cout << "생성자(const char*) - 갯수 : " << num << ", 주소 : " << static_cast<void*>(p) << std::endl;
+}
+
+String::String(const String& other) : num(other.num), p(new char[num])
+{
+	memcpy(p, other.p, num);
+
+	std::cout << "복사생성자(const String&) - 갯수 : " << num << ", 주소 : " << static_cast<void*>(p) << std::endl;
+}
+
+String::~String()
+{
+	std::cout << "소멸자 - 갯수 : " << num << ", 주소 : " << static_cast<void*>(p) << std::endl;
+
+	delete[] p;
+}
+
+void String::show()
+{
+	for (int i = 0; i < num; ++i)
+	{
+		std::cout << p[i];
+	}
+
+	std::cout << std::endl;
+}
+
+String& String::operator=(const String& other)
+{
+	if (this == &other)
+	{
+		return *this;
+	}
+
+	delete[] p;
+	num = other.num;
+	p = new char[num];
+
+	memcpy(p, other.p, num);
+
+	std::cout << "복사 할당연산자 - 갯수 : " << num << ", 주소 : " << static_cast<void*>(p) << std::endl;
+
+	return *this;
+}
+
+String String::operator+(const String& rhs) const
+{
+	String temp;
+
+	temp.num = num + rhs.num;
+	temp.p = new char[temp.num];
+
+	memcpy(temp.p, p, num);
+	memcpy(temp.p + num, rhs.p, rhs.num);
+
+	return temp;
+}
+
+std::ostream& operator<<(std::ostream& os, const String& s)
+{
+	for (int i = 0; i < s.num; ++i)
+	{
+		os << s.p[i];
+	}
+
+	return os;
+}
+
+// 자원을 관리하는 클래스는 자기가 관리하는 자원을 이동시킬 수도 있다.
+// 이동은 복사보다 효율적인 동작이 될 수 있다.
+
+int main()
+{
+	String s1{ "나는 s1이 관리하는 자원입니다" };
+	String s2 = std::move(s1);
+
+	std::cout << "s1 : " << s1 << std::endl;
+	std::cout << "s2 : " << s2 << std::endl;
+
+	Save("main.cpp", "11월 01일(월).txt");
+}
+
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 2021-11-04 오후 11:03:11 목요일
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 11월 01일 월요일 (9주 2일)
+// 
+// 표준 string과 유사한 기능을 하는 String을 만들며 class 설계에 필요한 것들을 학습
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <string>
+#include "save.h"
+
+class String
+{
+public:
+	String() { std::cout << "디폴트 생성자() - 갯수 : " << num << ", 주소 : " << static_cast<void*>(p) << std::endl; };
+	String(const char* str);
+	~String();
+public:
+	String(const String& other);				// 복사생성자
+	String& operator=(const String& other);		// 복사 할당연산자
+
+	String(String&& other);						// 이동생성자, &&는 자원이 이동됨을 의미
+	String& operator=(String&& other);			// 이동 할당연산자
+public:
+	void show();
+public:
+	size_t size() const { return num; }
+public:
+	String operator+(const String& rhs) const;
+	friend std::ostream& operator<<(std::ostream& os, const String& s);
+
+private:
+	size_t num{};	// 저장한 글자 수
+	char* p{};		// 글자가 있는 메모리
+};
+
+String::String(const char* str) : num(strlen(str))
+{
+	p = new char[num];
+	memcpy(p, str, num);
+
+	std::cout << "생성자(const char*) - 갯수 : " << num << ", 주소 : " << static_cast<void*>(p) << std::endl;
+}
+
+String::~String()
+{
+	std::cout << "소멸자 - 갯수 : " << num << ", 주소 : " << static_cast<void*>(p) << std::endl;
+
+	delete[] p;
+}
+
+String::String(const String& other) : num(other.num), p(new char[num])
+{
+	memcpy(p, other.p, num);
+
+	std::cout << "복사생성자(const String&) - 갯수 : " << num << ", 주소 : " << static_cast<void*>(p) << std::endl;
+}
+
+String& String::operator=(const String& other)
+{
+	if (this == &other)
+		return *this;
+
+	delete[] p;
+	num = other.num;
+	p = new char[num];
+
+	memcpy(p, other.p, num);
+
+	std::cout << "복사 할당연산자 - 갯수 : " << num << ", 주소 : " << static_cast<void*>(p) << std::endl;
+
+	return *this;
+}
+
+String::String(String&& other) : num(other.num), p(other.p)
+{
+	other.num = 0;
+	other.p = nullptr;
+
+	std::cout << "이동생성자(String&&) - 갯수 : " << num << ", 주소 : " << static_cast<void*>(p) << std::endl;
+}
+
+String& String::operator=(String&& other)
+{
+	if (this == &other)
+		return *this;
+
+	delete[] p;
+	num = other.num;
+	p = other.p;
+
+	other.num = 0;
+	other.p = nullptr;
+
+	std::cout << "이동 할당연산자 - 갯수 : " << num << ", 주소 : " << static_cast<void*>(p) << std::endl;
+
+	return *this;
+}
+
+void String::show()
+{
+	for (int i = 0; i < num; ++i)
+	{
+		std::cout << p[i];
+	}
+
+	std::cout << std::endl;
+}
+
+String String::operator+(const String& rhs) const
+{
+	String temp;
+
+	temp.num = num + rhs.num;
+	temp.p = new char[temp.num];
+
+	memcpy(temp.p, p, num);
+	memcpy(temp.p + num, rhs.p, rhs.num);
+
+	return temp;
+}
+
+std::ostream& operator<<(std::ostream& os, const String& s)
+{
+	for (int i = 0; i < s.num; ++i)
+	{
+		os << s.p[i];
+	}
+
+	return os;
+}
+
+// 자원을 관리하는 클래스는 자기가 관리하는 자원을 이동시킬 수도 있다.
+// 이동은 복사보다 효율적인 동작이 될 수 있다.
+
+int main()
+{
+	String s1{ "나는 s1이 관리하는 자원입니다" };
+	String s2 = std::move(s1);
+
+	std::cout << "s1 : " << s1 << std::endl;
+	std::cout << "s2 : " << s2 << std::endl;
+
+	Save("main.cpp", "11월 01일(월).txt");
+}
+
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 2021-11-04 오후 11:13:24 목요일
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 11월 01일 월요일 (9주 2일)
+// 
+// 표준 string과 유사한 기능을 하는 String을 만들며 class 설계에 필요한 것들을 학습
+// 
+// 내가 만든 클래스가 자원을 할당 받는다면(모든 이야기는 여기에서 시작)
+//	1. 생성자에서 자원을 할당 받는다.	(RAII)
+//	2. 소멸자에서 자원을 반환한다.
+//	3. 복사 생성자를 만들어 깊은 복사를 한다.
+//	4. 복사 할당 연산자를 만들어 깊은 복사를 한다.
+//	5. 이동 생성자를 만들어 복사보다 효율적인 동적이 되게 한다.
+//	6. 이동 할당 연산자도 잊지말고 만들어야 한다.
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include "save.h"
+
+class String
+{
+public:
+	String() { std::cout << "디폴트 생성자() - 갯수 : " << num << ", 주소 : " << static_cast<void*>(p) << std::endl; };
+	String(const char* str);
+	~String();
+public:
+	String(const String& other);				// 복사생성자
+	String& operator=(const String& other);		// 복사 할당연산자
+
+	String(String&& other) noexcept;			// 이동생성자, &&는 자원이 이동됨을 의미
+	String& operator=(String&& other) noexcept;	// 이동 할당연산자
+public:
+	void show();
+public:
+	size_t size() const { return num; }
+public:
+	String operator+(const String& rhs) const;
+	friend std::ostream& operator<<(std::ostream& os, const String& s);
+
+private:
+	size_t num{};	// 저장한 글자 수
+	char* p{};		// 글자가 있는 메모리
+};
+
+String::String(const char* str) : num(strlen(str))
+{
+	p = new char[num];
+	memcpy(p, str, num);
+
+	std::cout << "생성자(const char*) - 갯수 : " << num << ", 주소 : " << static_cast<void*>(p) << std::endl;
+}
+
+String::~String()
+{
+	std::cout << "소멸자 - 갯수 : " << num << ", 주소 : " << static_cast<void*>(p) << std::endl;
+
+	delete[] p;
+}
+
+String::String(const String& other) : num(other.num), p(new char[num])
+{
+	memcpy(p, other.p, num);
+
+	std::cout << "복사생성자(const String&) - 갯수 : " << num << ", 주소 : " << static_cast<void*>(p) << std::endl;
+}
+
+String& String::operator=(const String& other)
+{
+	if (this == &other)
+		return *this;
+
+	delete[] p;
+	num = other.num;
+	p = new char[num];
+
+	memcpy(p, other.p, num);
+
+	std::cout << "복사 할당연산자 - 갯수 : " << num << ", 주소 : " << static_cast<void*>(p) << std::endl;
+
+	return *this;
+}
+
+String::String(String&& other) noexcept : num(other.num), p(other.p)
+{
+	other.num = 0;
+	other.p = nullptr;
+
+	std::cout << "이동생성자(String&&) - 갯수 : " << num << ", 주소 : " << static_cast<void*>(p) << std::endl;
+}
+
+String& String::operator=(String&& other) noexcept
+{
+	if (this == &other)
+		return *this;
+
+	delete[] p;
+	num = other.num;
+	p = other.p;
+
+	other.num = 0;
+	other.p = nullptr;
+
+	std::cout << "이동 할당연산자 - 갯수 : " << num << ", 주소 : " << static_cast<void*>(p) << std::endl;
+
+	return *this;
+}
+
+void String::show()
+{
+	for (int i = 0; i < num; ++i)
+	{
+		std::cout << p[i];
+	}
+
+	std::cout << std::endl;
+}
+
+String String::operator+(const String& rhs) const
+{
+	String temp;
+
+	temp.num = num + rhs.num;
+	temp.p = new char[temp.num];
+
+	memcpy(temp.p, p, num);
+	memcpy(temp.p + num, rhs.p, rhs.num);
+
+	return temp;
+}
+
+std::ostream& operator<<(std::ostream& os, const String& s)
+{
+	for (int i = 0; i < s.num; ++i)
+	{
+		os << s.p[i];
+	}
+
+	return os;
+}
+
+// name을 길이 내림차순으로 정렬한 후 화면에 출력하라
+
+int main()
+{
+	String name[5]{ "파일", "Git", "창", "도움말", "프로젝트" };
+
+	std::sort(std::begin(name), std::end(name), [](const String& s1, const String& s2)
+		{
+			return s1.size() > s2.size();
+		});
+
+	for (const String& s : name)
+	{
+		std::cout << s << std::endl;
+	}
+
+	Save("main.cpp", "11월 01일(월).txt");
+}
+
+

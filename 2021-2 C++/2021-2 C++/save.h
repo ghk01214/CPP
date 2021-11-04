@@ -1,8 +1,13 @@
-#pragma once
+#ifndef _SAVE
+#define _SAVE
+
 #include <iostream>
+#include <vector>
 #include <string_view>
 #include <filesystem>
 #include <fstream>
 #include <ctime>
 
-void Save(std::string_view fileName, std::string_view saveDate);
+void Save(std::vector<std::string> saveList, std::string_view saveDate);
+
+#endif

@@ -1,54 +1,77 @@
 //━━━━━━━━━━━━━━━━━━━━━━━━
-// 10월 13일 수요일 (7주 1일)
+// 11월 03일 수요일 (10주 1일)
 // 
-// 멤버변수가 private이여야 하는 이유를 살펴볼 수 있는 클래스를 작성하면서
-// Object Oriented Programming의 개념을 엿본다.
+// class와 더 친해보자.
 //━━━━━━━━━━━━━━━━━━━━━━━━
 
 #include <iostream>
+#include <vector>
+#include <random>
+
 #include "save.h"
+#include "Dog.h"
 
-// [문제] main의 코드가 문제없이 실행되도록 class를 정의하고 모든 관찰 메세지를 출력하라
+// [문제] Dog 여러마리가 서로 경주하는 게임을 만들려고 한다.
+// 1. class Dog를 코딩해보자
+// 멤버변수 - 이름, 속도
+// 멤버함수 - 달린다 
+// class Dog 객체 10개를 만들어라
+// 각 객체의 이름과 속도를 랜덤 값으로 생성하라.
+// 속도는 초속 20000 ~ 50000 값으로 설정하라.
+// 경주를 시작하고 1초 경과시마다 각 객체가 달린 거리를 계산하고 1km를 먼저 달리는 Dog 객체를 출력하라.
 
-class Dragon
-{
-public:
-	Dragon();
-	~Dragon();
-	Dragon(const Dragon& other);
-	Dragon& operator=(const Dragon& other);
-};
-
-Dragon::Dragon()
-{
-	std::cout << "디폴트 생성자" << std::endl;
-}
-
-Dragon::~Dragon()
-{
-	std::cout << "소멸자"
-}
-
-Dragon::Dragon(const Dragon& other)
-{
-	std::cout << "복사생성자" << std::endl;
-
-
-}
-
-Dragon& Dragon::operator=(const Dragon& other)
-{
-	std::cout << "할당연산자" << std::endl;
-}
+std::random_device rd;
+std::default_random_engine dre(rd());
+std::uniform_real_distribution<> urd(20000, 50000);
 
 int main()
 {
-	Dragon a;
-	Dragon b{ a };
+	Dog dogs[10];
 
-	a = b;
+	for (int i = 0; i < std::size(dogs); ++i)
+	{
+		dogs[i].SetName("Dog " + std::to_string(i) + "호");
+		dogs[i].SetSpeed(urd(dre) / 3600);
+	}
 
-	Save("main.cpp", "10월 13일(수).txt");
+	for (const Dog& dog : dogs)
+	{
+		std::cout << dog << std::endl;
+	}
+
+	std::cout << "키를 누르면 경주를 시작";
+	
+	char c;
+	std::cin >> c;
+
+	double distance[10]{};
+	bool break_loop{ false };
+
+	while (true)
+	{
+		for (int i = 0; i < std::size(dogs); ++i)
+		{
+			distance[i] += dogs[i].GetSpeed();
+		}
+
+		for (int i = 0; i < std::size(dogs); ++i)
+		{
+			if (distance[i] >= 1000)
+			{
+				std::cout << "결승선 도착 : " << dogs[i] << std::endl;
+				
+				break_loop = true;
+			}
+		}
+
+		if (break_loop)
+			break;
+	}
+
+	std::vector<std::string> v(3);
+	v[0] = "main.cpp";
+	v[1] = "Dog.h";
+	v[2] = "Dog.cpp";
+
+	Save(v, "11월 03일(수).txt");
 }
-
-

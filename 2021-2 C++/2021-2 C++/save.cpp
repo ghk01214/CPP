@@ -1,7 +1,6 @@
 #include "save.h"
 
-// google coding convention
-void Save(std::string_view fileName, std::string_view saveDate)
+void Save(std::vector<std::string> saveList, std::string_view saveDate)
 {
 	char c;
 
@@ -10,12 +9,9 @@ void Save(std::string_view fileName, std::string_view saveDate)
 
 	if (c == 'y')
 	{
-		// 어떤 파일을 저장하는지 화면에 출력
-		std::cout << "저장: " << fileName << ", 크기: " << std::filesystem::file_size(fileName) << std::endl;
-
 		std::ofstream out(saveDate, std::ios::app);
 		//std::ofstream out2("2021-2 C++.txt", std::ios::app);
-		std::ifstream in(fileName);
+		std::ofstream out2("중간고사 이후.txt", std::ios::app);
 
 		//파일을 기록한 시간도 표시
 		time_t t{ std::time(nullptr) };
@@ -27,28 +23,44 @@ void Save(std::string_view fileName, std::string_view saveDate)
 		out << "저장시간: " << std::put_time(localtime(&t), "%c %A") << std::endl;
 		out << "━━━━━━━━━━━━━━━━━━━━" << std::endl;
 
-		//out2 << "━━━━━━━━━━━━━━━━━━━━" << std::endl;
-		//out2 << "저장시간: " << std::put_time(localtime(&t), "%c %A") << std::endl;
-		//out2 << "━━━━━━━━━━━━━━━━━━━━" << std::endl;
+		out2 << "━━━━━━━━━━━━━━━━━━━━" << std::endl;
+		out2 << "저장시간: " << std::put_time(localtime(&t), "%c %A") << std::endl;
+		out2 << "━━━━━━━━━━━━━━━━━━━━" << std::endl;
 
-		//파일의 끝을 알려주기 위해서 char 형이 아니라 int 형으로 받아온다
-		int c;
-
-		//while ((c = in.get()) != EOF)
-		//{
-		//	out.put(c);
-		//}
-
-		char ch;
-
-		while (in >> std::noskipws >> ch)
+		for (const auto& fileName : saveList)
 		{
-			out << ch;
-			//out2 << ch;
+			// 어떤 파일을 저장하는지 화면에 출력
+			std::cout << "저장: " << fileName << ", 크기: " << std::filesystem::file_size(fileName) << std::endl;
+
+			std::ifstream in(fileName);
+
+			//파일의 끝을 알려주기 위해서 char 형이 아니라 int 형으로 받아온다
+			//int c;
+
+			//while ((c = in.get()) != EOF)
+			//{
+			//	out.put(c);
+			//}
+
+			char ch;
+
+			while (in >> std::noskipws >> ch)
+			{
+				out << ch;
+				out2 << ch;
+			}
+
+			if (saveList.size() > 1)
+			{
+				out << std::endl << std::endl << "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" << std::endl << std::endl;
+				out2 << std::endl << std::endl << "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" << std::endl << std::endl;
+			}
+
+			//in.close();
 		}
 
 		out << std::endl << std::endl;
-		//out2 << std::endl << std::endl;
+		out2 << std::endl << std::endl;
 
 		//RAII
 		/*in.close();

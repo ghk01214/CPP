@@ -1,0 +1,148 @@
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 2021-11-04 오후 11:46:45 목요일
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 11월 03일 수요일 (10주 1일)
+// 
+// class와 더 친해보자.
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+
+#include "save.h"
+#include "Dog.h"
+
+// [문제] Dog 여러마리가 서로 경주하는 게임을 만들려고 한다.
+// 1. class Dog를 코딩해보자
+// 멤버변수 - 이름, 속도
+// 멤버함수 - 달린다 
+// main이 수정 없이 실행되도록 class Dog를 코딩하라.
+
+int main()
+{
+	Dog a;
+	Dog b{ "코코" };
+	Dog c{ "보리", 40000 / 3600 };
+
+	std::cout << a << std::endl;		 // 이름이 없어요, 0
+	std::cout << b << std::endl;		 // 코코, 0
+	std::cout << c << std::endl; 		 // 보리, 11.1
+
+	Save("main.cpp", "11월 03일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 2021-11-05 오전 12:19:26 금요일
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 11월 03일 수요일 (10주 1일)
+// 
+// class와 더 친해보자.
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <vector>
+#include <random>
+
+#include "save.h"
+#include "Dog.h"
+
+// [문제] Dog 여러마리가 서로 경주하는 게임을 만들려고 한다.
+// 1. class Dog를 코딩해보자
+// 멤버변수 - 이름, 속도
+// 멤버함수 - 달린다 
+// class Dog 객체 10개를 만들어라
+// 각 객체의 이름과 속도를 랜덤 값으로 생성하라.
+// 속도는 초속 20000 ~ 50000 값으로 설정하라.
+// 경주를 시작하고 1초 경과시마다 각 객체가 달린 거리를 계산하고 1km를 먼저 달리는 Dog 객체를 출력하라.
+
+std::random_device rd;
+std::default_random_engine dre(rd());
+std::uniform_real_distribution<> urd(20000, 50000);
+
+int main()
+{
+	Dog dogs[10];
+
+	for (int i = 0; i < std::size(dogs); ++i)
+	{
+		dogs[i].SetName("Dog " + std::to_string(i) + "호");
+		dogs[i].SetSpeed(urd(dre) / 3600);
+	}
+
+	for (const Dog& dog : dogs)
+	{
+		std::cout << dog << std::endl;
+	}
+
+	std::vector<std::string> v(3);
+	v[0] = "main.cpp";
+	v[1] = "Dog.h";
+	v[2] = "Dog.cpp";
+
+	Save(v, "11월 03일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+#ifndef _DOG
+#define _DOG
+
+class Dog
+{
+public:
+	Dog();
+	Dog(std::string name);
+	Dog(std::string name, double speed);
+public:
+	// 관찰을 위해 작성
+	Dog(const Dog& other);
+public:
+	void SetName(std::string n) { name = n; }
+	void SetSpeed(double s) { speed = s; }
+public:
+	void bark() { std::cout << "왈왈" << std::endl; }
+public:
+	friend std::ostream& operator<<(std::ostream& os, const Dog& d);
+
+private:
+	std::string name;
+	double speed; 
+};
+
+#endif // !_DOG
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <string>
+
+#include "Dog.h"
+
+Dog::Dog() : name("이름이 없어요"), speed(0)
+{
+	bark();
+}
+
+Dog::Dog(std::string name) : name(name)
+{
+	bark();
+}
+
+Dog::Dog(std::string name, double speed) : name(name), speed(speed)
+{
+	bark();
+}
+
+Dog::Dog(const Dog& other) : name(other.name), speed(other.speed)
+{
+	bark();
+}
+
+std::ostream& operator<<(std::ostream& os, const Dog& d)
+{
+	os << d.name << ", 속도 : " << d.speed;
+
+	return os;
+}
+
