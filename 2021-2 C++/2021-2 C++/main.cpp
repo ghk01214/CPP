@@ -68,10 +68,5 @@ int main()
 			break;
 	}
 
-	std::vector<std::string> v(3);
-	v[0] = "main.cpp";
-	v[1] = "Dog.h";
-	v[2] = "Dog.cpp";
-
-	Save(v, "11월 03일(수).txt");
+	Save(std::vector<std::string>{"main.cpp", "Dog.h", "Dog.cpp"}, "11월 08일(월).txt");
 }

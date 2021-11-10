@@ -31,6 +31,7 @@ void Save(std::vector<std::string> saveList, std::string_view saveDate)
 		{
 			// 어떤 파일을 저장하는지 화면에 출력
 			std::cout << "저장: " << fileName << ", 크기: " << std::filesystem::file_size(fileName) << std::endl;
+			out << fileName << std::endl;
 
 			std::ifstream in(fileName);
 
@@ -58,9 +59,6 @@ void Save(std::vector<std::string> saveList, std::string_view saveDate)
 
 			//in.close();
 		}
-
-		out << std::endl << std::endl;
-		out2 << std::endl << std::endl;
 
 		//RAII
 		/*in.close();
