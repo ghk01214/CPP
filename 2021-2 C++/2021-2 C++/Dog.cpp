@@ -1,31 +1,26 @@
 #include <iostream>
-#include <string>
 
 #include "Dog.h"
 
-Dog::Dog() : name("이름이 없어요"), speed(0)
+Dog::Dog(std::string name) : name(name), age(0)
 {
-	bark();
 }
 
-Dog::Dog(std::string name) : name(name)
+Dog::Dog(std::string name, int age) : name(name), age(age)
 {
-	bark();
+
 }
 
-Dog::Dog(std::string name, double speed) : name(name), speed(speed)
+std::ostream& operator<<(std::ostream& os, const Dog& dog)
 {
-	bark();
-}
-
-Dog::Dog(const Dog& other) : name(other.name), speed(other.speed)
-{
-	bark();
-}
-
-std::ostream& operator<<(std::ostream& os, const Dog& d)
-{
-	os << d.name << ", 속도 : " << d.speed;
+	os << dog.name << " " << dog.age;
 
 	return os;
+}
+
+std::istream& operator>>(std::istream& is, Dog& dog)
+{
+	is >> dog.name >> dog.age;
+
+	return is;
 }

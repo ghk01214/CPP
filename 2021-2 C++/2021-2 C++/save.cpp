@@ -1,6 +1,6 @@
 #include "save.h"
 
-void Save(std::vector<std::string> saveList, std::string_view saveDate)
+void Save(std::vector<std::string> saveList, std::string saveDate)
 {
 	char c;
 
@@ -11,7 +11,7 @@ void Save(std::vector<std::string> saveList, std::string_view saveDate)
 	{
 		std::ofstream out(saveDate, std::ios::app);
 		//std::ofstream out2("2021-2 C++.txt", std::ios::app);
-		std::ofstream out2("중간고사 이후.txt", std::ios::app);
+		std::ofstream out2("중간고사 이후2.txt", std::ios::app);
 
 		//파일을 기록한 시간도 표시
 		time_t t{ std::time(nullptr) };

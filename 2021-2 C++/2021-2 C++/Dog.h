@@ -4,25 +4,16 @@
 class Dog
 {
 public:
-	Dog();
+	Dog() = default;
 	Dog(std::string name);
-	Dog(std::string name, double speed);
+	Dog(std::string name, int age);
 public:
-	// °üÂûÀ» À§ÇØ ÀÛ¼º
-	Dog(const Dog& other);
-public:
-	void SetName(std::string n) { name = n; }
-	void SetSpeed(double s) { speed = s; }
-
-	double GetSpeed() { return speed; }
-public:
-	void bark() { std::cout << "¿Ğ¿Ğ" << std::endl; }
-public:
-	friend std::ostream& operator<<(std::ostream& os, const Dog& d);
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog);
+	friend std::istream& operator>>(std::istream& is, Dog& dog);
 
 private:
 	std::string name;
-	double speed; 
+	int age;
 };
 
 #endif // !_DOG

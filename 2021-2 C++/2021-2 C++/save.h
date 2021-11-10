@@ -8,6 +8,6 @@
 #include <fstream>
 #include <ctime>
 
-void Save(std::vector<std::string> saveList, std::string_view saveDate);
+void Save(std::vector<std::string> saveList, std::string saveDate);
 
 #endif

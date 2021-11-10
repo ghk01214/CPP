@@ -1,0 +1,248 @@
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 11/10/21 18:07:32 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 11월 10일 수요일 (11주 1일)
+// 
+// 1. 지난 시간 복습
+// 2. class Dog를 파일에 저장하고 파일에서 읽어오기
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <vector>
+#include <random>
+
+#include "save.h"
+#include "Dog.h"
+
+// [문제] 문제없이 실행되도록 코딩하라
+
+int main()
+{
+	Dog a{ "코코" };
+	Dog b{ "보리", 2 };
+
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+
+	Save(std::vector<std::string>{"main.cpp", "Dog.h", "Dog.cpp"}, "11월 10일(목).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+#ifndef _DOG
+#define _DOG
+
+class Dog
+{
+public:
+	Dog() = default;
+	Dog(std::string name);
+	Dog(std::string name, int age);
+public:
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog);
+
+private:
+	std::string name;
+	int age;
+};
+
+#endif // !_DOG
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+
+#include "Dog.h"
+
+Dog::Dog(std::string name) : name(name), age(0)
+{
+}
+
+Dog::Dog(std::string name, int age) : name(name), age(age)
+{
+
+}
+
+std::ostream& operator<<(std::ostream& os, const Dog& dog)
+{
+	os << "나는 " << dog.name << ", " << dog.age << "살입니다.";
+
+	return os;
+}
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 11/10/21 18:28:18 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 11월 10일 수요일 (11주 1일)
+// 
+// 1. 지난 시간 복습
+// 2. class Dog를 파일에 저장하고 파일에서 읽어오기
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <vector>
+#include <random>
+
+#include "save.h"
+#include "Dog.h"
+
+// [문제] Dog a와 b의 정보를 파일 "개 두마리.txt"에 기록하라
+// 기록되는 내용은 지금 cout과 같이 되게하라
+
+int main()
+{
+	Dog a{ "코코" };
+	Dog b{ "보리", 2 };
+
+	std::ofstream out("개 두마리.txt");
+
+	out << a << std::endl;
+	out << b << std::endl;
+
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+
+	Save(std::vector<std::string>{"main.cpp", "Dog.h", "Dog.cpp"}, "11월 10일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+#ifndef _DOG
+#define _DOG
+
+class Dog
+{
+public:
+	Dog() = default;
+	Dog(std::string name);
+	Dog(std::string name, int age);
+public:
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog);
+
+private:
+	std::string name;
+	int age;
+};
+
+#endif // !_DOG
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+
+#include "Dog.h"
+
+Dog::Dog(std::string name) : name(name), age(0)
+{
+}
+
+Dog::Dog(std::string name, int age) : name(name), age(age)
+{
+
+}
+
+std::ostream& operator<<(std::ostream& os, const Dog& dog)
+{
+	os << "나는 " << dog.name << ", " << dog.age << "살입니다.";
+
+	return os;
+}
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 11/10/21 18:43:06 Wednesday
+━━━━━━━━━━━━━━━━━━━━
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 11월 10일 수요일 (11주 1일)
+// 
+// 1. 지난 시간 복습
+// 2. class Dog를 파일에 저장하고 파일에서 읽어오기
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <random>
+
+#include "save.h"
+#include "Dog.h"
+
+// [문제] "개 두마리.txt"에는 Dog 2 객체의 정보가 기록되어 있다.
+// 파일을 읽어서 정보를 출력하라.
+
+int main()
+{
+	Dog a;
+	Dog b;
+
+	std::ifstream in("개 두마리.txt");
+
+	in >> a >> b;
+
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+
+	Save(std::vector<std::string>{"main.cpp", "Dog.h", "Dog.cpp"}, "11월 10일(수).txt");
+}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+#ifndef _DOG
+#define _DOG
+
+class Dog
+{
+public:
+	Dog() = default;
+	Dog(std::string name);
+	Dog(std::string name, int age);
+public:
+	friend std::ostream& operator<<(std::ostream& os, const Dog& dog);
+	friend std::istream& operator>>(std::istream& is, Dog& dog);
+
+private:
+	std::string name;
+	int age;
+};
+
+#endif // !_DOG
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+
+#include "Dog.h"
+
+Dog::Dog(std::string name) : name(name), age(0)
+{
+}
+
+Dog::Dog(std::string name, int age) : name(name), age(age)
+{
+
+}
+
+std::ostream& operator<<(std::ostream& os, const Dog& dog)
+{
+	os << dog.name << " " << dog.age;
+
+	return os;
+}
+
+std::istream& operator>>(std::istream& is, Dog& dog)
+{
+	is >> dog.name >> dog.age;
+
+	return is;
+}
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
