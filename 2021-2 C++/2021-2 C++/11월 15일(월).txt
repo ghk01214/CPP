@@ -1,254 +1,7 @@
 ¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-ÀúÀå½Ã°£: 11/10/21 18:07:32 Wednesday
+ÀúÀå½Ã°£: 2021-11-15 ¿ÀÈÄ 5:56:22 ¿ù¿äÀÏ
 ¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-// 11¿ù 10ÀÏ ¼ö¿äÀÏ (11ÁÖ 1ÀÏ)
-// 
-// 1. Áö³­ ½Ã°£ º¹½À
-// 2. class Dog¸¦ ÆÄÀÏ¿¡ ÀúÀåÇÏ°í ÆÄÀÏ¿¡¼­ ÀÐ¾î¿À±â
-//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-
-#include <iostream>
-#include <vector>
-#include <random>
-
-#include "save.h"
-#include "Dog.h"
-
-// [¹®Á¦] ¹®Á¦¾øÀÌ ½ÇÇàµÇµµ·Ï ÄÚµùÇÏ¶ó
-
-int main()
-{
-	Dog a{ "ÄÚÄÚ" };
-	Dog b{ "º¸¸®", 2 };
-
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-
-	Save(std::vector<std::string>{"main.cpp", "Dog.h", "Dog.cpp"}, "11¿ù 10ÀÏ(¸ñ).txt");
-}
-
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-
-#ifndef _DOG
-#define _DOG
-
-class Dog
-{
-public:
-	Dog() = default;
-	Dog(std::string name);
-	Dog(std::string name, int age);
-public:
-	friend std::ostream& operator<<(std::ostream& os, const Dog& dog);
-
-private:
-	std::string name;
-	int age;
-};
-
-#endif // !_DOG
-
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-
-#include <iostream>
-
-#include "Dog.h"
-
-Dog::Dog(std::string name) : name(name), age(0)
-{
-}
-
-Dog::Dog(std::string name, int age) : name(name), age(age)
-{
-
-}
-
-std::ostream& operator<<(std::ostream& os, const Dog& dog)
-{
-	os << "³ª´Â " << dog.name << ", " << dog.age << "»ìÀÔ´Ï´Ù.";
-
-	return os;
-}
-
-
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-ÀúÀå½Ã°£: 11/10/21 18:28:18 Wednesday
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-// 11¿ù 10ÀÏ ¼ö¿äÀÏ (11ÁÖ 1ÀÏ)
-// 
-// 1. Áö³­ ½Ã°£ º¹½À
-// 2. class Dog¸¦ ÆÄÀÏ¿¡ ÀúÀåÇÏ°í ÆÄÀÏ¿¡¼­ ÀÐ¾î¿À±â
-//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-
-#include <iostream>
-#include <vector>
-#include <random>
-
-#include "save.h"
-#include "Dog.h"
-
-// [¹®Á¦] Dog a¿Í bÀÇ Á¤º¸¸¦ ÆÄÀÏ "°³ µÎ¸¶¸®.txt"¿¡ ±â·ÏÇÏ¶ó
-// ±â·ÏµÇ´Â ³»¿ëÀº Áö±Ý cout°ú °°ÀÌ µÇ°ÔÇÏ¶ó
-
-int main()
-{
-	Dog a{ "ÄÚÄÚ" };
-	Dog b{ "º¸¸®", 2 };
-
-	std::ofstream out("°³ µÎ¸¶¸®.txt");
-
-	out << a << std::endl;
-	out << b << std::endl;
-
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-
-	Save(std::vector<std::string>{"main.cpp", "Dog.h", "Dog.cpp"}, "11¿ù 10ÀÏ(¼ö).txt");
-}
-
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-
-#ifndef _DOG
-#define _DOG
-
-class Dog
-{
-public:
-	Dog() = default;
-	Dog(std::string name);
-	Dog(std::string name, int age);
-public:
-	friend std::ostream& operator<<(std::ostream& os, const Dog& dog);
-
-private:
-	std::string name;
-	int age;
-};
-
-#endif // !_DOG
-
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-
-#include <iostream>
-
-#include "Dog.h"
-
-Dog::Dog(std::string name) : name(name), age(0)
-{
-}
-
-Dog::Dog(std::string name, int age) : name(name), age(age)
-{
-
-}
-
-std::ostream& operator<<(std::ostream& os, const Dog& dog)
-{
-	os << "³ª´Â " << dog.name << ", " << dog.age << "»ìÀÔ´Ï´Ù.";
-
-	return os;
-}
-
-
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-ÀúÀå½Ã°£: 11/10/21 18:43:06 Wednesday
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-// 11¿ù 10ÀÏ ¼ö¿äÀÏ (11ÁÖ 1ÀÏ)
-// 
-// 1. Áö³­ ½Ã°£ º¹½À
-// 2. class Dog¸¦ ÆÄÀÏ¿¡ ÀúÀåÇÏ°í ÆÄÀÏ¿¡¼­ ÀÐ¾î¿À±â
-//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <random>
-
-#include "save.h"
-#include "Dog.h"
-
-// [¹®Á¦] "°³ µÎ¸¶¸®.txt"¿¡´Â Dog 2 °´Ã¼ÀÇ Á¤º¸°¡ ±â·ÏµÇ¾î ÀÖ´Ù.
-// ÆÄÀÏÀ» ÀÐ¾î¼­ Á¤º¸¸¦ Ãâ·ÂÇÏ¶ó.
-
-int main()
-{
-	Dog a;
-	Dog b;
-
-	std::ifstream in("°³ µÎ¸¶¸®.txt");
-
-	in >> a >> b;
-
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-
-	Save(std::vector<std::string>{"main.cpp", "Dog.h", "Dog.cpp"}, "11¿ù 10ÀÏ(¼ö).txt");
-}
-
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-
-#ifndef _DOG
-#define _DOG
-
-class Dog
-{
-public:
-	Dog() = default;
-	Dog(std::string name);
-	Dog(std::string name, int age);
-public:
-	friend std::ostream& operator<<(std::ostream& os, const Dog& dog);
-	friend std::istream& operator>>(std::istream& is, Dog& dog);
-
-private:
-	std::string name;
-	int age;
-};
-
-#endif // !_DOG
-
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-
-#include <iostream>
-
-#include "Dog.h"
-
-Dog::Dog(std::string name) : name(name), age(0)
-{
-}
-
-Dog::Dog(std::string name, int age) : name(name), age(age)
-{
-
-}
-
-std::ostream& operator<<(std::ostream& os, const Dog& dog)
-{
-	os << dog.name << " " << dog.age;
-
-	return os;
-}
-
-std::istream& operator>>(std::istream& is, Dog& dog)
-{
-	is >> dog.name >> dog.age;
-
-	return is;
-}
-
-
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-ÀúÀå½Ã°£: 11/15/21 17:56:22 Monday
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+main.cpp
 //¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
 // 11¿ù 15ÀÏ ¿ù¿äÀÏ (11ÁÖ 2ÀÏ)
 // 
@@ -298,6 +51,7 @@ int main()
 
 ¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
 
+Dog.h
 #ifndef _DOG
 #define _DOG
 
@@ -323,6 +77,7 @@ private:
 
 ¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
 
+Dog.cpp
 #include <iostream>
 
 #include "Dog.h"
@@ -354,8 +109,9 @@ std::istream& operator>>(std::istream& is, Dog& dog)
 ¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
 
 ¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-ÀúÀå½Ã°£: 11/15/21 18:10:08 Monday
+ÀúÀå½Ã°£: 2021-11-15 ¿ÀÈÄ 6:10:08 ¿ù¿äÀÏ
 ¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+main.cpp
 //¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
 // 11¿ù 15ÀÏ ¿ù¿äÀÏ (11ÁÖ 2ÀÏ)
 // 
@@ -415,6 +171,7 @@ int main()
 
 ¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
 
+Dog.h
 #ifndef _DOG
 #define _DOG
 
@@ -443,6 +200,7 @@ private:
 
 ¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
 
+Dog.cpp
 #include <iostream>
 
 #include "Dog.h"
@@ -474,8 +232,9 @@ std::istream& operator>>(std::istream& is, Dog& dog)
 ¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
 
 ¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-ÀúÀå½Ã°£: 11/15/21 18:16:55 Monday
+ÀúÀå½Ã°£: 2021-11-15 ¿ÀÈÄ 6:16:55 ¿ù¿äÀÏ
 ¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+main.cpp
 //¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
 // 11¿ù 15ÀÏ ¿ù¿äÀÏ (11ÁÖ 2ÀÏ)
 // 
@@ -532,11 +291,14 @@ int main()
 
 	std::cout << "³ªÀÌ Á¤·Ä : " << *dogs << std::endl;
 
+	delete[] dogs;
+
 	Save(std::vector<std::string>{"main.cpp", "Dog.h", "Dog.cpp"}, "11¿ù 15ÀÏ(¿ù).txt");
 }
 
 ¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
 
+Dog.h
 #ifndef _DOG
 #define _DOG
 
@@ -565,6 +327,7 @@ private:
 
 ¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
 
+Dog.cpp
 #include <iostream>
 
 #include "Dog.h"
@@ -596,8 +359,9 @@ std::istream& operator>>(std::istream& is, Dog& dog)
 ¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
 
 ¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-ÀúÀå½Ã°£: 11/15/21 18:42:11 Monday
+ÀúÀå½Ã°£: 2021-11-15 ¿ÀÈÄ 6:42:11 ¿ù¿äÀÏ
 ¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+main.cpp
 //¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
 // 11¿ù 15ÀÏ ¿ù¿äÀÏ (11ÁÖ 2ÀÏ)
 // 
@@ -647,7 +411,7 @@ int main()
 
 	std::cout << "ÀÌ¸§ Á¤·Ä : " << *dogs << std::endl;
 
-	std::sort(dogs, dogs + 10000, [](const Dog& a, const Dog& b)
+	std::sort(dogs, dogs + 10000, [](const Dog& a, const const Dog& b)
 		{
 			return a.GetAge() < b.GetAge();
 		});
@@ -661,6 +425,7 @@ int main()
 
 ¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
 
+Dog.h
 #ifndef _DOG
 #define _DOG
 
@@ -689,6 +454,7 @@ private:
 
 ¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
 
+Dog.cpp
 #include <iostream>
 
 #include "Dog.h"

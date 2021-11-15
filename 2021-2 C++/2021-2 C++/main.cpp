@@ -1,5 +1,5 @@
 //━━━━━━━━━━━━━━━━━━━━━━━━
-// 11월 10일 수요일 (11주 1일)
+// 11월 15일 월요일 (11주 2일)
 // 
 // 1. 지난 시간 복습
 // 2. class Dog를 파일에 저장하고 파일에서 읽어오기
@@ -13,24 +13,46 @@
 #include "save.h"
 #include "Dog.h"
 
-// [문제] Dog 10000 객체를 생성하여 파일 "개 1만 마리.txt"에 기록한다.
-// name은 랜덤한 알파벳 소문자만 사용하고 10글자로 고정한다.
-// age는 [1, 10000] 사이의 랜덤한 값으로 만들자.
-// 파일에서 1만 마리 정보를 읽어 필요한 내용을 코딩해 본다.
+// [문제] 파일 "개 1만마리.txt"에 Dog 객체 1만개가 기록되어 있다.
+// 1. 정보를 읽어 화면에 출력하라
+// 2. 이름 오름차순으로 정렬한 후 첫 원소를 출력
+// 3. 나이 오름차순으로 정렬한 후 첫 원소를 출력
 
 std::random_device rd;
 std::default_random_engine dre(rd());
-std::uniform_int_distribution<char> ucd(97, 122);
+std::uniform_int_distribution<int> ucd('a', 'z');
 std::uniform_int_distribution<int> uid(1, 10000);
 
 int main()
 {
-	std::ofstream in("개 1만 마리.txt");
+	std::ifstream in("개 1만 마리.txt");
 
-	for (int i = 0; i < 10000; ++i)
+	Dog d;
+	Dog* dogs{ new Dog[10000] };
+	int i{};
+
+	while (in >> dogs[i])
 	{
-		Dog a{ ucd(dre), uid(dre) };
+		std::cout << dogs[i++] << std::endl;
 	}
 
-	Save(std::vector<std::string>{"main.cpp", "Dog.h", "Dog.cpp"}, "11월 10일(수).txt");
+	std::cout << std::endl;
+
+	std::sort(dogs, dogs + 10000, [](const Dog& a, const Dog& b)
+		{
+			return a.GetName() < b.GetName();
+		});
+
+	std::cout << "이름 정렬 : " << *dogs << std::endl;
+
+	std::sort(dogs, dogs + 10000, [](const Dog& a, const Dog& b)
+		{
+			return a.GetAge() < b.GetAge();
+		});
+
+	std::cout << "나이 정렬 : " << *dogs << std::endl;
+
+	delete[] dogs;
+
+	Save(std::vector<std::string>{"main.cpp", "Dog.h", "Dog.cpp"}, "11월 15일(월).txt");
 }
