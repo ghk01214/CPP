@@ -1,7 +1,9 @@
 #ifndef _DOG
 #define _DOG
 
-class Dog
+#include "Animal.h"
+
+class Dog : public Animal
 {
 public:
 	Dog() { name.resize(10); }

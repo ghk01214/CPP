@@ -1,0 +1,140 @@
+━━━━━━━━━━━━━━━━━━━━
+저장시간: 2021-11-17 오후 6:20:36 수요일
+━━━━━━━━━━━━━━━━━━━━
+main.cpp
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 11월 17일 수요일 (12주 1일)
+// 
+// 1. 객체간의 관계 : 상속(inheritance)
+//	1. 코드를 재사용한다.(STRING)
+//	2. 다형성을 구현한다.
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+#include <fstream>
+#include <random>
+
+#include "save.h"
+#include "Dog.h"
+
+// [문제] 문자열을 다루는 클래스가 필요하다.(string)
+// 모든 문자가 대문자이어야 한다.
+
+class STRING : public std::string
+{
+public:
+	STRING(std::string s) : std::string(s)
+	{
+		for (int i = 0; i < length(); ++i)
+		{
+			at(i) = std::toupper(at(i));
+		}
+	}
+// 수정 필요
+//public:
+//	STRING& operator+=(std::string s)
+//	{
+//		for (int i = 0; i < length(); ++i)
+//		{
+//			push_back(std::toupper(s[i]));
+//		}
+//
+//		return *this;
+//	}
+};
+
+int main()
+{
+	STRING a{ "c++ programming" };
+	a += " language";
+
+	std::cout << a << std::endl;	// C++ PROGRAMMING LANGUAGE
+
+	Save(std::vector<std::string>{"main.cpp"}, "11월 17일(수).txt");
+}━━━━━━━━━━━━━━━━━━━━
+저장시간: 2021-11-17 오후 6:46:13 수요일
+━━━━━━━━━━━━━━━━━━━━
+main.cpp
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 11월 17일 수요일 (12주 1일)
+// 
+// 1. 객체간의 관계 : 상속(inheritance)
+//	1. 코드를 재사용한다.(STRING)
+//	2. 다형성을 구현한다.
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+
+#include "save.h"
+#include "Dog.h"
+
+// [문제] 부모 자식 객체의 생성자 호출을 확인하라.
+
+class Parent
+{
+public:
+	Parent() { std::cout << "부모 생성자 호출" << std::endl; }
+
+private:
+	char a;
+};
+
+class Child : public Parent
+{
+public:
+	Child() { std::cout << "자식 생성자 호출" << std::endl; }
+
+private:
+	int b;
+};
+
+int main()
+{
+	Child a;
+
+	Save(std::vector<std::string>{"main.cpp"}, "11월 17일(수).txt");
+}━━━━━━━━━━━━━━━━━━━━
+저장시간: 2021-11-17 오후 6:53:24 수요일
+━━━━━━━━━━━━━━━━━━━━
+main.cpp
+//━━━━━━━━━━━━━━━━━━━━━━━━
+// 11월 17일 수요일 (12주 1일)
+// 
+// 1. 객체간의 관계 : 상속(inheritance)
+//	1. 코드를 재사용한다.(STRING)
+//	2. 다형성을 구현한다.
+//━━━━━━━━━━━━━━━━━━━━━━━━
+
+#include <iostream>
+
+#include "save.h"
+#include "Dog.h"
+
+// [문제] 부모 자식 객체의 생성자 호출을 확인하라.
+
+class Parent
+{
+public:
+	Parent() { std::cout << "부모 생성자 호출" << std::endl; }
+	~Parent() { std::cout << "부모 소멸자 호출" << std::endl; }
+
+private:
+	char a;
+};
+
+class Child : public Parent
+{
+public:
+	Child() { std::cout << "자식 생성자 호출" << std::endl; }
+	~Child() { std::cout << "자식 소멸자 호출" << std::endl; }
+
+private:
+	int b;
+};
+
+int main()
+{
+	Child a;
+
+	Save(std::vector<std::string>{"main.cpp"}, "11월 17일(수).txt");
+}
