@@ -1,0 +1,605 @@
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+ÀúÀå½Ã°£: 2021-11-22 ¿ÀÈÄ 5:38:17 ¿ù¿äÀÏ
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+main.cpp
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// 11¿ù 22ÀÏ ¿ù¿äÀÏ (12ÁÖ 2ÀÏ)
+// 
+// 1. °´Ã¼°£ÀÇ °ü°è : »ó¼Ó(inheritance)
+//	1. ÄÚµå¸¦ Àç»ç¿ëÇÑ´Ù.(STRING)
+//	2. ´ÙÇü¼ºÀ» ±¸ÇöÇÑ´Ù.
+// 
+// ÇÔ¼öÀÇ Á¤Ã¼(¸â¹ö ÇÔ¼ö Æ÷ÇÔ)
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+#include <iostream>
+
+#include "save.h"
+#include "Dog.h"
+
+// [¹®Á¦] 
+
+int main()
+{
+	Dog a{ "ÄÚÄÚ" };
+
+	a.Move();	// ÄÚÄÚ ¿òÁ÷ÀÎ´Ù.
+
+	Save(std::vector<std::string>{ "main.cpp" }, "11¿ù 22ÀÏ(¿ù).txt");
+}¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+ÀúÀå½Ã°£: 2021-11-22 ¿ÀÈÄ 5:38:49 ¿ù¿äÀÏ
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+Animal.h
+#ifndef _ANIMAL
+#define _ANIMAL
+
+class Animal
+{
+public:
+	Animal() = default;
+	Animal(std::string name) : name(name) {}
+public:
+	void Move();
+
+private:
+	std::string name;
+};
+
+#endif // ! _ANIMAL
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+Animal.cpp
+#include <iostream>
+#include <string>
+
+#include "Animal.h"
+
+void Animal::Move()
+{
+	std::cout << name << " ¿òÁ÷ÀÎ´Ù" << std::endl;
+}
+
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+Dog.h
+#ifndef _DOG
+#define _DOG
+
+#include "Animal.h"
+
+class Dog : public Animal
+{
+public:
+	Dog() = default;
+	Dog(std::string name) : Animal(name) {}
+};
+
+#endif // !_DOG
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+Dog.cpp
+#include <iostream>
+#include <string>
+
+#include "Dog.h"
+
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+ÀúÀå½Ã°£: 2021-11-22 ¿ÀÈÄ 5:46:25 ¿ù¿äÀÏ
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+main.cpp
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// 11¿ù 22ÀÏ ¿ù¿äÀÏ (12ÁÖ 2ÀÏ)
+// 
+// 1. °´Ã¼°£ÀÇ °ü°è : »ó¼Ó(inheritance)
+//	1. ÄÚµå¸¦ Àç»ç¿ëÇÑ´Ù.(STRING)
+//	2. ´ÙÇü¼ºÀ» ±¸ÇöÇÑ´Ù.
+// 
+// ÇÔ¼öÀÇ Á¤Ã¼(¸â¹ö ÇÔ¼ö Æ÷ÇÔ)
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+#include <iostream>
+
+#include "save.h"
+#include "Dog.h"
+
+// [¹®Á¦] 
+
+int main()
+{
+	Dog a{ "ÄÚÄÚ" };
+
+	a.Move();	// ÄÚÄÚ ¿òÁ÷ÀÎ´Ù.
+
+	Save(std::vector<std::string>{ "main.cpp", "Animal.h", "Animal.cpp", "Dog.h", "Dog.cpp" }, "11¿ù 22ÀÏ(¿ù).txt");
+}
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+Animal.h
+#ifndef _ANIMAL
+#define _ANIMAL
+
+class Animal
+{
+public:
+	Animal() = default;
+	Animal(std::string name) : name(name) {}
+public:
+	void Move();
+
+protected:
+	std::string name;
+};
+
+#endif // ! _ANIMAL
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+Animal.cpp
+#include <iostream>
+#include <string>
+
+#include "Animal.h"
+
+void Animal::Move()
+{
+	std::cout << name << " ¿òÁ÷ÀÎ´Ù" << std::endl;
+}
+
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+Dog.h
+#ifndef _DOG
+#define _DOG
+
+#include "Animal.h"
+
+class Dog : public Animal
+{
+public:
+	Dog() = default;
+	Dog(std::string name) : Animal(name) {}
+public:
+	void Move();	// ¸â¹ö ÇÔ¼ö´Â override °¡´É
+};
+
+#endif // !_DOG
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+Dog.cpp
+#include <iostream>
+#include <string>
+
+#include "Dog.h"
+
+void Dog::Move()
+{
+	std::cout << name << " ´Þ¸°´Ù" << std::endl;
+}
+
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+ÀúÀå½Ã°£: 2021-11-22 ¿ÀÈÄ 6:13:49 ¿ù¿äÀÏ
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+main.cpp
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// 11¿ù 22ÀÏ ¿ù¿äÀÏ (12ÁÖ 2ÀÏ)
+// 
+// 1. °´Ã¼°£ÀÇ °ü°è : »ó¼Ó(inheritance)
+//	1. ÄÚµå¸¦ Àç»ç¿ëÇÑ´Ù.(STRING)
+//	2. ´ÙÇü¼ºÀ» ±¸ÇöÇÑ´Ù.
+// 
+// ÇÔ¼öÀÇ Á¤Ã¼(¸â¹ö ÇÔ¼ö Æ÷ÇÔ)
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+#include <iostream>
+
+#include "save.h"
+#include "Dog.h"
+
+// [¹®Á¦] 
+
+int main()
+{
+	Dog a{ "ÄÚÄÚ" };
+	Dog b{ "º¸¸®" };
+
+	// ¸ðµç ¸â¹ö ÇÔ¼ö´Â this Æ÷ÀÎÅÍ°¡ Ã¹ ¹øÂ° ÀÎÀÚ·Î ¹«Á¶°Ç µé¾î°£´Ù.
+	a.Move();		// move(&a);
+	b.Move();		// move(&b);
+
+	Save(std::vector<std::string>{ "main.cpp", "Animal.h", "Animal.cpp", "Dog.h", "Dog.cpp" }, "11¿ù 22ÀÏ(¿ù).txt");
+}
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+Animal.h
+#ifndef _ANIMAL
+#define _ANIMAL
+
+class Animal
+{
+public:
+	Animal() = default;
+	Animal(std::string name) : name(name) {}
+public:
+	void Move();
+
+protected:
+	std::string name;
+};
+
+#endif // ! _ANIMAL
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+Animal.cpp
+#include <iostream>
+#include <string>
+
+#include "Animal.h"
+
+void Animal::Move()
+{
+	std::cout << name << " ¿òÁ÷ÀÎ´Ù" << std::endl;
+}
+
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+Dog.h
+#ifndef _DOG
+#define _DOG
+
+#include "Animal.h"
+
+class Dog : public Animal
+{
+public:
+	Dog() = default;
+	Dog(std::string name) : Animal(name) {}
+public:
+	void Move();	// ¸â¹ö ÇÔ¼ö´Â override °¡´É
+};
+
+#endif // !_DOG
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+Dog.cpp
+#include <iostream>
+#include <string>
+
+#include "Dog.h"
+
+void Dog::Move()
+{
+	std::cout << this->name << " ´Þ¸°´Ù" << std::endl;
+}
+
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+ÀúÀå½Ã°£: 2021-11-22 ¿ÀÈÄ 6:28:34 ¿ù¿äÀÏ
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+main.cpp
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// 11¿ù 22ÀÏ ¿ù¿äÀÏ (12ÁÖ 2ÀÏ)
+// 
+// 1. °´Ã¼°£ÀÇ °ü°è : »ó¼Ó(inheritance)
+//	1. ÄÚµå¸¦ Àç»ç¿ëÇÑ´Ù.(STRING)
+//	2. ´ÙÇü¼ºÀ» ±¸ÇöÇÑ´Ù.
+// 
+// ÇÔ¼öÀÇ Á¤Ã¼(¸â¹ö ÇÔ¼ö Æ÷ÇÔ)
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+#include <iostream>
+
+#include "save.h"
+#include "Dog.h"
+
+// [¹®Á¦] 
+
+int main()
+{
+	Dog a;
+	Bird b;
+
+	a.Move();
+	b.Move();
+
+	Save(std::vector<std::string>{ "main.cpp", "Animal.h", "Animal.cpp" }, "11¿ù 22ÀÏ(¿ù).txt");
+}
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+Animal.h
+#ifndef _ANIMAL
+#define _ANIMAL
+
+class Animal
+{
+public:
+	Animal() = default;
+	Animal(std::string name) : name(name) {}
+public:
+	void Move();
+
+protected:
+	std::string name;
+};
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+class Dog : public Animal
+{
+public:
+	void Move();
+};
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+class Bird : public Animal
+{
+public:
+	void Move();
+};
+
+#endif // ! _ANIMAL
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+Animal.cpp
+#include <iostream>
+#include <string>
+
+#include "Animal.h"
+
+void Animal::Move()
+{
+	std::cout << name << " ¿òÁ÷ÀÎ´Ù" << std::endl;
+}
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+void Dog::Move()
+{
+	std::cout << name << " ´Þ¸°´Ù" << std::endl;
+}
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+void Bird::Move()
+{
+	std::cout << name << " ³­´Ù" << std::endl;
+}
+
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+ÀúÀå½Ã°£: 2021-11-22 ¿ÀÈÄ 6:53:16 ¿ù¿äÀÏ
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+main.cpp
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// 11¿ù 22ÀÏ ¿ù¿äÀÏ (12ÁÖ 2ÀÏ)
+// 
+// 1. °´Ã¼°£ÀÇ °ü°è : »ó¼Ó(inheritance)
+//	1. ÄÚµå¸¦ Àç»ç¿ëÇÑ´Ù.(STRING)
+//	2. ´ÙÇü¼ºÀ» ±¸ÇöÇÑ´Ù.
+// 
+// ÇÔ¼öÀÇ Á¤Ã¼(¸â¹ö ÇÔ¼ö Æ÷ÇÔ)
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+#include <iostream>
+
+#include "save.h"
+#include "Dog.h"
+
+// [¹®Á¦] 
+
+int main()
+{
+	Dog a{ "ÄÚÄÚ" };
+	Bird b{ "»ß¾à" };
+
+	Animal x = a;
+	x.Move();
+
+	Save(std::vector<std::string>{ "main.cpp", "Animal.h", "Animal.cpp" }, "11¿ù 22ÀÏ(¿ù).txt");
+}
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+Animal.h
+#ifndef _ANIMAL
+#define _ANIMAL
+
+class Animal
+{
+public:
+	Animal() = default;
+	Animal(std::string name) : name(name) {}
+public:
+	void Move();
+
+protected:
+	std::string name;
+};
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+class Dog : public Animal
+{
+public:
+	Dog() = default;
+	Dog(std::string name) : Animal(name) {}
+public:
+	void Move();
+};
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+class Bird : public Animal
+{
+public:
+	Bird() = default;
+	Bird(std::string name) : Animal(name) {}
+public:
+	void Move();
+};
+
+#endif // ! _ANIMAL
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+Animal.cpp
+#include <iostream>
+#include <string>
+
+#include "Animal.h"
+
+void Animal::Move()
+{
+	std::cout << name << " ¿òÁ÷ÀÎ´Ù" << std::endl;
+}
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+void Dog::Move()
+{
+	std::cout << name << " ´Þ¸°´Ù" << std::endl;
+}
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+void Bird::Move()
+{
+	std::cout << name << " ³­´Ù" << std::endl;
+}
+
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+ÀúÀå½Ã°£: 2021-11-22 ¿ÀÈÄ 7:04:13 ¿ù¿äÀÏ
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+main.cpp
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// 11¿ù 22ÀÏ ¿ù¿äÀÏ (12ÁÖ 2ÀÏ)
+// 
+// 1. °´Ã¼°£ÀÇ °ü°è : »ó¼Ó(inheritance)
+//	1. ÄÚµå¸¦ Àç»ç¿ëÇÑ´Ù.(STRING)
+//	2. ´ÙÇü¼ºÀ» ±¸ÇöÇÑ´Ù.
+// 
+// ÇÔ¼öÀÇ Á¤Ã¼(¸â¹ö ÇÔ¼ö Æ÷ÇÔ)
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+#include <iostream>
+
+#include "save.h"
+#include "Dog.h"
+
+// [¹®Á¦] 
+
+int main()
+{
+	Dog a{ "ÄÚÄÚ" };
+	Bird b{ "»ß¾à" };
+
+	Animal* animals[2];
+
+	animals[0] = (Animal*)(Dog*)&a;
+	animals[1] = &b;
+
+	for (int i = 0; i < 2; ++i)
+	{
+		animals[i]->Move();
+	}
+
+	Save(std::vector<std::string>{ "main.cpp", "Animal.h", "Animal.cpp" }, "11¿ù 22ÀÏ(¿ù).txt");
+}
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+Animal.h
+#ifndef _ANIMAL
+#define _ANIMAL
+
+class Animal
+{
+public:
+	Animal() = default;
+	Animal(std::string name) : name(name) {}
+public:
+	virtual void Move();
+
+protected:
+	std::string name;
+};
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+class Dog : public Animal
+{
+public:
+	Dog() = default;
+	Dog(std::string name) : Animal(name) {}
+public:
+	void Move();
+};
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+class Bird : public Animal
+{
+public:
+	Bird() = default;
+	Bird(std::string name) : Animal(name) {}
+public:
+	void Move();
+};
+
+#endif // ! _ANIMAL
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+Animal.cpp
+#include <iostream>
+#include <string>
+
+#include "Animal.h"
+
+void Animal::Move()
+{
+	std::cout << name << " ¿òÁ÷ÀÎ´Ù" << std::endl;
+}
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+void Dog::Move()
+{
+	std::cout << name << " ´Þ¸°´Ù" << std::endl;
+}
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+void Bird::Move()
+{
+	std::cout << name << " ³­´Ù" << std::endl;
+}
+
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+

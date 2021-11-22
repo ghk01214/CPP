@@ -1,5 +1,5 @@
 //━━━━━━━━━━━━━━━━━━━━━━━━
-// 11월 17일 수요일 (12주 1일)
+// 11월 22일 월요일 (12주 2일)
 // 
 // 1. 객체간의 관계 : 상속(inheritance)
 //	1. 코드를 재사용한다.(STRING)
@@ -17,7 +17,18 @@
 
 int main()
 {
-	Dog a;
+	Dog a{ "코코" };
+	Bird b{ "삐약" };
 
-	Save(std::vector<std::string>{"main.cpp"}, "11월 17일(수).txt");
+	Animal* animals[2];
+
+	animals[0] = (Animal*)(Dog*)&a;
+	animals[1] = &b;
+
+	for (int i = 0; i < 2; ++i)
+	{
+		animals[i]->Move();
+	}
+
+	Save(std::vector<std::string>{ "main.cpp", "Animal.h", "Animal.cpp" }, "11월 22일(월).txt");
 }
