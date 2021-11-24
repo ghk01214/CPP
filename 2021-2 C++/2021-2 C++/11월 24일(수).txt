@@ -1,0 +1,479 @@
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+ÀúÀå½Ã°£: 2021-11-24 ¿ÀÈÄ 5:40:41 ¼ö¿äÀÏ
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+main.cpp
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// 11¿ù 24ÀÏ ¼ö¿äÀÏ (13ÁÖ 1ÀÏ)
+// 
+// 1. °´Ã¼°£ÀÇ °ü°è : »ó¼Ó(inheritance)
+//	1. ÄÚµå¸¦ Àç»ç¿ëÇÑ´Ù.(STRING)
+//	2. ´ÙÇü¼ºÀ» ±¸ÇöÇÑ´Ù.
+// 
+// ÇÔ¼öÀÇ Á¤Ã¼(¸â¹ö ÇÔ¼ö Æ÷ÇÔ)
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+#include <iostream>
+
+#include "save.h"
+#include "Dog.h"
+
+// °¡»óÇÔ¼ö(virtual function)ÀÇ ºñ¿ë
+
+int main()
+{
+	Dog a{ "ÄÚÄÚ" };
+
+	// °¡»óÇÔ¼ö°¡ ¾øÀ» ¶§ DogÀÇ Å©±â = 32
+	std::cout << sizeof(a) << std::endl;
+
+	Save(std::vector<std::string>{ "main.cpp", "Animal.h", "Animal.cpp" }, "11¿ù 24ÀÏ(¼ö).txt");
+}
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+Animal.h
+#ifndef _ANIMAL
+#define _ANIMAL
+
+class Animal
+{
+public:
+	Animal() = default;
+	Animal(std::string name) : name(name) {}
+public:
+	void Move();
+
+protected:
+	std::string name;
+};
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+class Dog : public Animal
+{
+public:
+	Dog() = default;
+	Dog(std::string name) : Animal(name) {}
+public:
+	void Move();
+};
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+class Bird : public Animal
+{
+public:
+	Bird() = default;
+	Bird(std::string name) : Animal(name) {}
+public:
+	void Move();
+};
+
+#endif // ! _ANIMAL
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+Animal.cpp
+#include <iostream>
+#include <string>
+
+#include "Animal.h"
+
+void Animal::Move()
+{
+	std::cout << name << " ¿òÁ÷ÀÎ´Ù" << std::endl;
+}
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+void Dog::Move()
+{
+	std::cout << name << " ´Þ¸°´Ù" << std::endl;
+}
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+void Bird::Move()
+{
+	std::cout << name << " ³­´Ù" << std::endl;
+}
+
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+ÀúÀå½Ã°£: 2021-11-24 ¿ÀÈÄ 5:40:56 ¼ö¿äÀÏ
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+main.cpp
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// 11¿ù 24ÀÏ ¼ö¿äÀÏ (13ÁÖ 1ÀÏ)
+// 
+// 1. °´Ã¼°£ÀÇ °ü°è : »ó¼Ó(inheritance)
+//	1. ÄÚµå¸¦ Àç»ç¿ëÇÑ´Ù.(STRING)
+//	2. ´ÙÇü¼ºÀ» ±¸ÇöÇÑ´Ù.
+// 
+// ÇÔ¼öÀÇ Á¤Ã¼(¸â¹ö ÇÔ¼ö Æ÷ÇÔ)
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+#include <iostream>
+
+#include "save.h"
+#include "Dog.h"
+
+// °¡»óÇÔ¼ö(virtual function)ÀÇ ºñ¿ë
+
+int main()
+{
+	Dog a{ "ÄÚÄÚ" };
+
+	// °¡»óÇÔ¼ö°¡ ÀÖÀ» ¶§ DogÀÇ Å©±â = 40
+	std::cout << sizeof(a) << std::endl;
+
+	Save(std::vector<std::string>{ "main.cpp", "Animal.h", "Animal.cpp" }, "11¿ù 24ÀÏ(¼ö).txt");
+}
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+Animal.h
+#ifndef _ANIMAL
+#define _ANIMAL
+
+class Animal
+{
+public:
+	Animal() = default;
+	Animal(std::string name) : name(name) {}
+public:
+	virtual void Move();
+
+protected:
+	std::string name;
+};
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+class Dog : public Animal
+{
+public:
+	Dog() = default;
+	Dog(std::string name) : Animal(name) {}
+public:
+	void Move();
+};
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+class Bird : public Animal
+{
+public:
+	Bird() = default;
+	Bird(std::string name) : Animal(name) {}
+public:
+	void Move();
+};
+
+#endif // ! _ANIMAL
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+Animal.cpp
+#include <iostream>
+#include <string>
+
+#include "Animal.h"
+
+void Animal::Move()
+{
+	std::cout << name << " ¿òÁ÷ÀÎ´Ù" << std::endl;
+}
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+void Dog::Move()
+{
+	std::cout << name << " ´Þ¸°´Ù" << std::endl;
+}
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+void Bird::Move()
+{
+	std::cout << name << " ³­´Ù" << std::endl;
+}
+
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+ÀúÀå½Ã°£: 2021-11-24 ¿ÀÈÄ 6:42:26 ¼ö¿äÀÏ
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+main.cpp
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// 11¿ù 24ÀÏ ¼ö¿äÀÏ (13ÁÖ 1ÀÏ)
+// 
+// 1. °´Ã¼°£ÀÇ °ü°è : »ó¼Ó(inheritance)
+//	1. ÄÚµå¸¦ Àç»ç¿ëÇÑ´Ù.(STRING)
+//	2. ´ÙÇü¼ºÀ» ±¸ÇöÇÑ´Ù.
+// 
+// ÇÔ¼öÀÇ Á¤Ã¼(¸â¹ö ÇÔ¼ö Æ÷ÇÔ)
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+#include <iostream>
+#include <random>
+
+#include "save.h"
+#include "Dog.h"
+
+// °¡»óÇÔ¼ö(virtual function)ÀÇ ºñ¿ë
+
+// [¹®Á¦] µ¿¹° È£ÅÚÀ» ¿î¿µÇÏ°í ÀÖ´Ù.
+// ¼Õ´ÔÀº Dog/BirdÀÌ´Ù.
+// ÇÁ·Î±×·¥ »ç¿ëÀÚ¿¡°Ô ¸î ¸¶¸®¸¦ ¸Ã±â°í ½ÍÀºÁö ¹¯´Â´Ù.
+// ³­¼ö¸¦ »ý¼ºÇÏ¿© È¦¼öÀÌ¸é Dog¸¦, Â¦¼öÀÌ¸é Bird¸¦ »ý¼ºÇÑ´Ù.
+// ¸ðµç µ¿¹°µéÀÇ move()¸¦ È£ÃâÇÏ¿© ´ÙÇü¼ºÀÇ ÀÇ¹Ì¸¦ »ìÆìº»´Ù.
+
+std::default_random_engine dre(std::random_device{}());
+std::uniform_int_distribution<int> uid(0, 1);
+
+int main()
+{
+	int num;
+
+	std::cout << "¸î ¸¶¸®ÀÎ°¡? ";
+	std::cin >> num;
+
+	Animal** animals{ new Animal*[num] };
+
+	for (int i = 0; i < num; ++i)
+	{
+		if (uid(dre))
+		{
+			animals[i] = new Dog(std::to_string(i + 1) + "¹ø °³");
+
+			continue;
+		}
+
+		animals[i] = new Bird(std::to_string(i + 1) + "¹ø »õ");
+	}
+
+	for (int i = 0; i < num; ++i)
+	{
+		animals[i]->Move();
+	}
+
+	delete[] animals;
+
+	Save(std::vector<std::string>{ "main.cpp", "Animal.h", "Animal.cpp" }, "11¿ù 24ÀÏ(¼ö).txt");
+}
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+Animal.h
+#ifndef _ANIMAL
+#define _ANIMAL
+
+class Animal
+{
+public:
+	Animal() = default;
+	Animal(std::string name) : name(name) {}
+public:
+	virtual void Move();
+
+protected:
+	std::string name;
+};
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+class Dog : public Animal
+{
+public:
+	Dog() = default;
+	Dog(std::string name) : Animal(name) {}
+public:
+	virtual void Move();
+};
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+class Bird : public Animal
+{
+public:
+	Bird() = default;
+	Bird(std::string name) : Animal(name) {}
+public:
+	virtual void Move();
+};
+
+#endif // ! _ANIMAL
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+Animal.cpp
+#include <iostream>
+#include <string>
+
+#include "Animal.h"
+
+void Animal::Move()
+{
+	std::cout << name << " ¿òÁ÷ÀÎ´Ù" << std::endl;
+}
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+void Dog::Move()
+{
+	std::cout << name << " ´Þ¸°´Ù" << std::endl;
+}
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+void Bird::Move()
+{
+	std::cout << name << " ³­´Ù" << std::endl;
+}
+
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+ÀúÀå½Ã°£: 2021-11-24 ¿ÀÈÄ 6:51:25 ¼ö¿äÀÏ
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+main.cpp
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// 11¿ù 24ÀÏ ¼ö¿äÀÏ (13ÁÖ 1ÀÏ)
+// 
+// 1. °´Ã¼°£ÀÇ °ü°è : »ó¼Ó(inheritance)
+//	1. ÄÚµå¸¦ Àç»ç¿ëÇÑ´Ù.(STRING)
+//	2. ´ÙÇü¼ºÀ» ±¸ÇöÇÑ´Ù.
+// 
+// ÇÔ¼öÀÇ Á¤Ã¼(¸â¹ö ÇÔ¼ö Æ÷ÇÔ)
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+#include <iostream>
+#include <random>
+
+#include "save.h"
+#include "Dog.h"
+
+// °¡»óÇÔ¼ö(virtual function)ÀÇ ºñ¿ë
+
+// [¹®Á¦] µ¿¹° È£ÅÚÀ» ¿î¿µÇÏ°í ÀÖ´Ù.
+// ¼Õ´ÔÀº Dog/BirdÀÌ´Ù.
+// ÇÁ·Î±×·¥ »ç¿ëÀÚ¿¡°Ô ¸î ¸¶¸®¸¦ ¸Ã±â°í ½ÍÀºÁö ¹¯´Â´Ù.
+// ³­¼ö¸¦ »ý¼ºÇÏ¿© È¦¼öÀÌ¸é Dog¸¦, Â¦¼öÀÌ¸é Bird¸¦ »ý¼ºÇÑ´Ù.
+// ¸ðµç µ¿¹°µéÀÇ move()¸¦ È£ÃâÇÏ¿© ´ÙÇü¼ºÀÇ ÀÇ¹Ì¸¦ »ìÆìº»´Ù.
+
+std::default_random_engine dre(std::random_device{}());
+std::uniform_int_distribution<int> uid(0, 1);
+
+int main()
+{
+	int num;
+
+	std::cout << "¸î ¸¶¸®ÀÎ°¡? ";
+	std::cin >> num;
+
+	Animal** animals{ new Animal*[num] };
+
+	for (int i = 0; i < num; ++i)
+	{
+		if (uid(dre))
+		{
+			animals[i] = new Dog(std::to_string(i + 1) + "¹ø °³");
+
+			continue;
+		}
+
+		animals[i] = new Bird(std::to_string(i + 1) + "¹ø »õ");
+	}
+
+	for (int i = 0; i < num; ++i)
+	{
+		animals[i]->Move();
+	}
+
+	for (int i = 0; i < num; ++i)
+	{
+		delete animals[i];
+	}
+
+	delete[] animals;
+
+	Save(std::vector<std::string>{ "main.cpp", "Animal.h", "Animal.cpp" }, "11¿ù 24ÀÏ(¼ö).txt");
+}
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+Animal.h
+#ifndef _ANIMAL
+#define _ANIMAL
+
+class Animal
+{
+public:
+	Animal() = default;
+	Animal(std::string name) : name(name) {}
+public:
+	virtual void Move();
+
+protected:
+	std::string name;
+};
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+class Dog : public Animal
+{
+public:
+	Dog() = default;
+	Dog(std::string name) : Animal(name) {}
+public:
+	virtual void Move();
+};
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+class Bird : public Animal
+{
+public:
+	Bird() = default;
+	Bird(std::string name) : Animal(name) {}
+public:
+	virtual void Move();
+};
+
+#endif // ! _ANIMAL
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+Animal.cpp
+#include <iostream>
+#include <string>
+
+#include "Animal.h"
+
+void Animal::Move()
+{
+	std::cout << name << " ¿òÁ÷ÀÎ´Ù" << std::endl;
+}
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+void Dog::Move()
+{
+	std::cout << name << " ´Þ¸°´Ù" << std::endl;
+}
+
+//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
+void Bird::Move()
+{
+	std::cout << name << " ³­´Ù" << std::endl;
+}
+
+
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+
