@@ -21,12 +21,12 @@ int main()
 
 	while (true)
 	{
-		std::cout << "¸Ş´º" << std::endl;
-		std::cout << "1. »ï°¢Çü Ãß°¡" << std::endl;
-		std::cout << "2. »ç°¢Çü Ãß°¡" << std::endl;
-		std::cout << "3. ¿ø Ãß°¡" << std::endl;
-		std::cout << "4. ÀüÃ¼ µµÇü ±×¸®±â" << std::endl;
-		std::cout << "0. ÇÁ·Î±×·¥ Á¾·á" << std::endl;
+		std::cout << "ë©”ë‰´" << std::endl;
+		std::cout << "1. ì‚¼ê°í˜• ì¶”ê°€" << std::endl;
+		std::cout << "2. ì‚¬ê°í˜• ì¶”ê°€" << std::endl;
+		std::cout << "3. ì› ì¶”ê°€" << std::endl;
+		std::cout << "4. ì „ì²´ ë„í˜• ê·¸ë¦¬ê¸°" << std::endl;
+		std::cout << "0. í”„ë¡œê·¸ë¨ ì¢…ë£Œ" << std::endl;
 
 		int menu;
 		std::cin >> menu;
@@ -35,7 +35,7 @@ int main()
 		{
 		case triangle:
 		{
-			std::cout << "»ï°¢ÇüÀÇ ²ÀÁöÁ¡ ÁÂÇ¥ ÀÔ·Â : ";
+			std::cout << "ì‚¼ê°í˜•ì˜ ê¼­ì§€ì  ì¢Œí‘œ ì…ë ¥ : ";
 
 			Point a, b, c;
 			std::cin >> a >> b >> c;
@@ -46,7 +46,7 @@ int main()
 
 		case rectangle:
 		{
-			std::cout << "»ç°¢ÇüÀÇ ´ë°¢¼± ²ÀÁöÁ¡ ÁÂÇ¥ ÀÔ·Â : ";
+			std::cout << "ì‚¬ê°í˜•ì˜ ëŒ€ê°ì„  ê¼­ì§€ì  ì¢Œí‘œ ì…ë ¥ : ";
 
 			Point a, b;
 			std::cin >> a >> b;
@@ -57,7 +57,7 @@ int main()
 
 		case circle:
 		{
-			std::cout << "¿øÀÇ Áß½ÉÁ¡ ÁÂÇ¥¿Í ¹İÁö¸§ ±æÀÌ ÀÔ·Â :	";
+			std::cout << "ì›ì˜ ì¤‘ì‹¬ì  ì¢Œí‘œì™€ ë°˜ì§€ë¦„ ê¸¸ì´ ì…ë ¥ :	";
 
 			Point center;
 			double radius;

@@ -4,5 +4,5 @@
 
 void Circle::Draw() const
 {
-	std::cout << "¿ø - Áß½ÉÁ¡(" << center.x << ", " << center.y << "), ¹ÝÁö¸§ " << rad << std::endl;
+	std::cout << "ì› - ì¤‘ì‹¬ì (" << center.x << ", " << center.y << "), ë°˜ì§€ë¦„ " << rad << std::endl;
 }

@@ -15,9 +15,9 @@ ShapeManager::~ShapeManager()
 void ShapeManager::Draw() const
 {
 	std::cout << "---------------------------------------" << std::endl;
-	std::cout << "°ü¸®ÇÏ´Â ¸ğµç µµÇüÀ» ±×¸³´Ï´Ù." << std::endl;
-	std::cout << "ÃÖ´ë " << capacity << "°³ÀÇ µµÇüÀ» ´ãÀ» ¼ö ÀÖ½À´Ï´Ù." << std::endl;
-	std::cout << "¸ğµÎ " << size << "°³ÀÇ µµÇüÀÌ ÀÖ½À´Ï´Ù." << std::endl;
+	std::cout << "ê´€ë¦¬í•˜ëŠ” ëª¨ë“  ë„í˜•ì„ ê·¸ë¦½ë‹ˆë‹¤." << std::endl;
+	std::cout << "ìµœëŒ€ " << capacity << "ê°œì˜ ë„í˜•ì„ ë‹´ì„ ìˆ˜ ìˆìŠµë‹ˆë‹¤." << std::endl;
+	std::cout << "ëª¨ë‘ " << size << "ê°œì˜ ë„í˜•ì´ ìˆìŠµë‹ˆë‹¤." << std::endl;
 	std::cout << "---------------------------------------" << std::endl;
 
 	for (int i = 0; i < size; ++i)
@@ -29,6 +29,6 @@ void ShapeManager::Draw() const
 	std::cout << std::endl;
 
 	std::cout << "---------------------------------------" << std::endl;
-	std::cout << "±×¸®±â Á¾·á" << std::endl;
+	std::cout << "ê·¸ë¦¬ê¸° ì¢…ë£Œ" << std::endl;
 	std::cout << "---------------------------------------" << std::endl;
 }
