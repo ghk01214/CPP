@@ -4,14 +4,14 @@
 
 int main()
 {
-	std::ifstream in{ "½ÃÇè1.dat" };
+	std::ifstream in{ "ì‹œí—˜1.dat" };
 
 	enum { count = 1000000 };
 	std::vector<int> num(count);
 
 	if (!in)
 	{
-		std::cout << "ÆÄÀÏ ¿­±â ½ÇÆĞ" << std::endl;
+		std::cout << "íŒŒì¼ ì—´ê¸° ì‹¤íŒ¨" << std::endl;
 
 		return 0;
 	}
@@ -32,8 +32,8 @@ int main()
 			max = num[i];
 	}
 	
-	std::cout << "Æò±Õ °ª : " << static_cast<long double>(sum) / count << std::endl;
-	std::cout << "ÃÖ´ë °ª : " << max << std::endl;
+	std::cout << "í‰ê·  ê°’ : " << static_cast<long double>(sum) / count << std::endl;
+	std::cout << "ìµœëŒ€ ê°’ : " << max << std::endl;
 
 	//delete[] num;
 }
