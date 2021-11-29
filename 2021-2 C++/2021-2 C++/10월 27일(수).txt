@@ -1,18 +1,18 @@
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-ÀúÀå½Ã°£: 2021-11-04 ¿ÀÈÄ 10:10:36 ¸ñ¿äÀÏ
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-// 10¿ù 27ÀÏ ¼ö¿äÀÏ (9ÁÖ 1ÀÏ)
+â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+ì €ì¥ì‹œê°„: 2021-11-04 ì˜¤í›„ 10:10:36 ëª©ìš”ì¼
+â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+//â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+// 10ì›” 27ì¼ ìˆ˜ìš”ì¼ (9ì£¼ 1ì¼)
 // 
-// Ç¥ÁØ string°ú À¯»çÇÑ ±â´ÉÀ» ÇÏ´Â StringÀ» ¸¸µé¸ç class ¼³°è¿¡ ÇÊ¿äÇÑ °ÍµéÀ» ÇĞ½À
-//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// í‘œì¤€ stringê³¼ ìœ ì‚¬í•œ ê¸°ëŠ¥ì„ í•˜ëŠ” Stringì„ ë§Œë“¤ë©° class ì„¤ê³„ì— í•„ìš”í•œ ê²ƒë“¤ì„ í•™ìŠµ
+//â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 
 #include <iostream>
 #include <string>
 #include "save.h"
 
-// [¹®Á¦] ´ÙÀ½ main()ÀÌ ¹®Á¦ ¾øÀÌ ½ÇÇàµÇµµ·Ï class StringÀ» ÄÚµùÇÏ¶ó.
-// main()ÀÌ ¼öÁ¤µÇ¸é ¾È µÈ´Ù.
+// [ë¬¸ì œ] ë‹¤ìŒ main()ì´ ë¬¸ì œ ì—†ì´ ì‹¤í–‰ë˜ë„ë¡ class Stringì„ ì½”ë”©í•˜ë¼.
+// main()ì´ ìˆ˜ì •ë˜ë©´ ì•ˆ ëœë‹¤.
 
 class String
 {
@@ -28,8 +28,8 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const String& s);
 
 private:
-	size_t num{};	// ÀúÀåÇÑ ±ÛÀÚ ¼ö
-	char* p{};		// ±ÛÀÚ°¡ ÀÖ´Â ¸Ş¸ğ¸®
+	size_t num{};	// ì €ì¥í•œ ê¸€ì ìˆ˜
+	char* p{};		// ê¸€ìê°€ ìˆëŠ” ë©”ëª¨ë¦¬
 };
 
 String::String(const char* str) : num(strlen(str))
@@ -37,12 +37,12 @@ String::String(const char* str) : num(strlen(str))
 	p = new char[num];
 	memcpy(p, str, num);
 
-	std::cout << "»ı¼ºÀÚ(const char*) - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "ìƒì„±ì(const char*) - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 }
 
 String::~String()
 {
-	std::cout << "¼Ò¸êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "ì†Œë©¸ì - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 
 	delete[] p;
 }
@@ -70,7 +70,7 @@ String& String::operator=(const String& other)
 
 	memcpy(p, other.p, num);
 
-	std::cout << "ÇÒ´ç¿¬»êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "í• ë‹¹ì—°ì‚°ì - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 
 	return *this;
 }
@@ -87,34 +87,34 @@ std::ostream& operator<<(std::ostream& os, const String& s)
 
 int main()
 {
-	String s{ "¾È³çÇÏ¼¼¿ä" };
+	String s{ "ì•ˆë…•í•˜ì„¸ìš”" };
 
 	std::cout << s << std::endl;
 
-	Save("main.cpp", "10¿ù 13ÀÏ(¼ö).txt");
+	Save("main.cpp", "10ì›” 13ì¼(ìˆ˜).txt");
 }
 
 
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-ÀúÀå½Ã°£: 2021-11-04 ¿ÀÈÄ 10:14:07 ¸ñ¿äÀÏ
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-// 10¿ù 27ÀÏ ¼ö¿äÀÏ (9ÁÖ 1ÀÏ)
+â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+ì €ì¥ì‹œê°„: 2021-11-04 ì˜¤í›„ 10:14:07 ëª©ìš”ì¼
+â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+//â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+// 10ì›” 27ì¼ ìˆ˜ìš”ì¼ (9ì£¼ 1ì¼)
 // 
-// Ç¥ÁØ string°ú À¯»çÇÑ ±â´ÉÀ» ÇÏ´Â StringÀ» ¸¸µé¸ç class ¼³°è¿¡ ÇÊ¿äÇÑ °ÍµéÀ» ÇĞ½À
-//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// í‘œì¤€ stringê³¼ ìœ ì‚¬í•œ ê¸°ëŠ¥ì„ í•˜ëŠ” Stringì„ ë§Œë“¤ë©° class ì„¤ê³„ì— í•„ìš”í•œ ê²ƒë“¤ì„ í•™ìŠµ
+//â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 
 #include <iostream>
 #include <string>
 #include "save.h"
 
-// [¹®Á¦] ´ÙÀ½ main()ÀÌ ¹®Á¦ ¾øÀÌ ½ÇÇàµÇµµ·Ï class StringÀ» ÄÚµùÇÏ¶ó.
-// main()ÀÌ ¼öÁ¤µÇ¸é ¾È µÈ´Ù.
+// [ë¬¸ì œ] ë‹¤ìŒ main()ì´ ë¬¸ì œ ì—†ì´ ì‹¤í–‰ë˜ë„ë¡ class Stringì„ ì½”ë”©í•˜ë¼.
+// main()ì´ ìˆ˜ì •ë˜ë©´ ì•ˆ ëœë‹¤.
 
 class String
 {
 public:
-	String() { std::cout << "µğÆúÆ® »ı¼ºÀÚ() - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl; };
+	String() { std::cout << "ë””í´íŠ¸ ìƒì„±ì() - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl; };
 	String(const char* str);
 	~String();
 public:
@@ -126,8 +126,8 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const String& s);
 
 private:
-	size_t num{};	// ÀúÀåÇÑ ±ÛÀÚ ¼ö
-	char* p{};		// ±ÛÀÚ°¡ ÀÖ´Â ¸Ş¸ğ¸®
+	size_t num{};	// ì €ì¥í•œ ê¸€ì ìˆ˜
+	char* p{};		// ê¸€ìê°€ ìˆëŠ” ë©”ëª¨ë¦¬
 };
 
 String::String(const char* str) : num(strlen(str))
@@ -135,12 +135,12 @@ String::String(const char* str) : num(strlen(str))
 	p = new char[num];
 	memcpy(p, str, num);
 
-	std::cout << "»ı¼ºÀÚ(const char*) - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "ìƒì„±ì(const char*) - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 }
 
 String::~String()
 {
-	std::cout << "¼Ò¸êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "ì†Œë©¸ì - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 
 	delete[] p;
 }
@@ -168,7 +168,7 @@ String& String::operator=(const String& other)
 
 	memcpy(p, other.p, num);
 
-	std::cout << "ÇÒ´ç¿¬»êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "í• ë‹¹ì—°ì‚°ì - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 
 	return *this;
 }
@@ -186,37 +186,37 @@ std::ostream& operator<<(std::ostream& os, const String& s)
 int main()
 {
 	String s1;
-	String s2{ "Ç¥ÁØ string°ú °°Àº µ¿ÀÛÀ» ÇÏ´Â Å¬·¡½º" };
+	String s2{ "í‘œì¤€ stringê³¼ ê°™ì€ ë™ì‘ì„ í•˜ëŠ” í´ë˜ìŠ¤" };
 
 	//s1 = s2;
 
 	std::cout << s1 << std::endl;
 	std::cout << s2 << std::endl;
 
-	Save("main.cpp", "10¿ù 13ÀÏ(¼ö).txt");
+	Save("main.cpp", "10ì›” 13ì¼(ìˆ˜).txt");
 }
 
 
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-ÀúÀå½Ã°£: 2021-11-04 ¿ÀÈÄ 10:14:21 ¸ñ¿äÀÏ
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-// 10¿ù 27ÀÏ ¼ö¿äÀÏ (9ÁÖ 1ÀÏ)
+â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+ì €ì¥ì‹œê°„: 2021-11-04 ì˜¤í›„ 10:14:21 ëª©ìš”ì¼
+â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+//â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+// 10ì›” 27ì¼ ìˆ˜ìš”ì¼ (9ì£¼ 1ì¼)
 // 
-// Ç¥ÁØ string°ú À¯»çÇÑ ±â´ÉÀ» ÇÏ´Â StringÀ» ¸¸µé¸ç class ¼³°è¿¡ ÇÊ¿äÇÑ °ÍµéÀ» ÇĞ½À
-//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// í‘œì¤€ stringê³¼ ìœ ì‚¬í•œ ê¸°ëŠ¥ì„ í•˜ëŠ” Stringì„ ë§Œë“¤ë©° class ì„¤ê³„ì— í•„ìš”í•œ ê²ƒë“¤ì„ í•™ìŠµ
+//â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 
 #include <iostream>
 #include <string>
 #include "save.h"
 
-// [¹®Á¦] ´ÙÀ½ main()ÀÌ ¹®Á¦ ¾øÀÌ ½ÇÇàµÇµµ·Ï class StringÀ» ÄÚµùÇÏ¶ó.
-// main()ÀÌ ¼öÁ¤µÇ¸é ¾È µÈ´Ù.
+// [ë¬¸ì œ] ë‹¤ìŒ main()ì´ ë¬¸ì œ ì—†ì´ ì‹¤í–‰ë˜ë„ë¡ class Stringì„ ì½”ë”©í•˜ë¼.
+// main()ì´ ìˆ˜ì •ë˜ë©´ ì•ˆ ëœë‹¤.
 
 class String
 {
 public:
-	String() { std::cout << "µğÆúÆ® »ı¼ºÀÚ() - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl; };
+	String() { std::cout << "ë””í´íŠ¸ ìƒì„±ì() - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl; };
 	String(const char* str);
 	~String();
 public:
@@ -228,8 +228,8 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const String& s);
 
 private:
-	size_t num{};	// ÀúÀåÇÑ ±ÛÀÚ ¼ö
-	char* p{};		// ±ÛÀÚ°¡ ÀÖ´Â ¸Ş¸ğ¸®
+	size_t num{};	// ì €ì¥í•œ ê¸€ì ìˆ˜
+	char* p{};		// ê¸€ìê°€ ìˆëŠ” ë©”ëª¨ë¦¬
 };
 
 String::String(const char* str) : num(strlen(str))
@@ -237,12 +237,12 @@ String::String(const char* str) : num(strlen(str))
 	p = new char[num];
 	memcpy(p, str, num);
 
-	std::cout << "»ı¼ºÀÚ(const char*) - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "ìƒì„±ì(const char*) - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 }
 
 String::~String()
 {
-	std::cout << "¼Ò¸êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "ì†Œë©¸ì - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 
 	delete[] p;
 }
@@ -270,7 +270,7 @@ String& String::operator=(const String& other)
 
 	memcpy(p, other.p, num);
 
-	std::cout << "ÇÒ´ç¿¬»êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "í• ë‹¹ì—°ì‚°ì - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 
 	return *this;
 }
@@ -288,37 +288,37 @@ std::ostream& operator<<(std::ostream& os, const String& s)
 int main()
 {
 	String s1;
-	String s2{ "Ç¥ÁØ string°ú °°Àº µ¿ÀÛÀ» ÇÏ´Â Å¬·¡½º" };
+	String s2{ "í‘œì¤€ stringê³¼ ê°™ì€ ë™ì‘ì„ í•˜ëŠ” í´ë˜ìŠ¤" };
 
 	s1 = s2;
 
 	std::cout << s1 << std::endl;
 	std::cout << s2 << std::endl;
 
-	Save("main.cpp", "10¿ù 13ÀÏ(¼ö).txt");
+	Save("main.cpp", "10ì›” 13ì¼(ìˆ˜).txt");
 }
 
 
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-ÀúÀå½Ã°£: 2021-11-04 ¿ÀÈÄ 10:16:34 ¸ñ¿äÀÏ
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-// 10¿ù 27ÀÏ ¼ö¿äÀÏ (9ÁÖ 1ÀÏ)
+â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+ì €ì¥ì‹œê°„: 2021-11-04 ì˜¤í›„ 10:16:34 ëª©ìš”ì¼
+â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+//â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+// 10ì›” 27ì¼ ìˆ˜ìš”ì¼ (9ì£¼ 1ì¼)
 // 
-// Ç¥ÁØ string°ú À¯»çÇÑ ±â´ÉÀ» ÇÏ´Â StringÀ» ¸¸µé¸ç class ¼³°è¿¡ ÇÊ¿äÇÑ °ÍµéÀ» ÇĞ½À
-//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// í‘œì¤€ stringê³¼ ìœ ì‚¬í•œ ê¸°ëŠ¥ì„ í•˜ëŠ” Stringì„ ë§Œë“¤ë©° class ì„¤ê³„ì— í•„ìš”í•œ ê²ƒë“¤ì„ í•™ìŠµ
+//â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 
 #include <iostream>
 #include <string>
 #include "save.h"
 
-// [¹®Á¦] ´ÙÀ½ main()ÀÌ ¹®Á¦ ¾øÀÌ ½ÇÇàµÇµµ·Ï class StringÀ» ÄÚµùÇÏ¶ó.
-// main()ÀÌ ¼öÁ¤µÇ¸é ¾È µÈ´Ù.
+// [ë¬¸ì œ] ë‹¤ìŒ main()ì´ ë¬¸ì œ ì—†ì´ ì‹¤í–‰ë˜ë„ë¡ class Stringì„ ì½”ë”©í•˜ë¼.
+// main()ì´ ìˆ˜ì •ë˜ë©´ ì•ˆ ëœë‹¤.
 
 class String
 {
 public:
-	String() { std::cout << "µğÆúÆ® »ı¼ºÀÚ() - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl; };
+	String() { std::cout << "ë””í´íŠ¸ ìƒì„±ì() - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl; };
 	String(const char* str);
 	~String();
 public:
@@ -330,8 +330,8 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const String& s);
 
 private:
-	size_t num{};	// ÀúÀåÇÑ ±ÛÀÚ ¼ö
-	char* p{};		// ±ÛÀÚ°¡ ÀÖ´Â ¸Ş¸ğ¸®
+	size_t num{};	// ì €ì¥í•œ ê¸€ì ìˆ˜
+	char* p{};		// ê¸€ìê°€ ìˆëŠ” ë©”ëª¨ë¦¬
 };
 
 String::String(const char* str) : num(strlen(str))
@@ -339,12 +339,12 @@ String::String(const char* str) : num(strlen(str))
 	p = new char[num];
 	memcpy(p, str, num);
 
-	std::cout << "»ı¼ºÀÚ(const char*) - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "ìƒì„±ì(const char*) - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 }
 
 String::~String()
 {
-	std::cout << "¼Ò¸êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "ì†Œë©¸ì - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 
 	delete[] p;
 }
@@ -372,7 +372,7 @@ String& String::operator=(const String& other)
 
 	memcpy(p, other.p, num);
 
-	std::cout << "ÇÒ´ç¿¬»êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "í• ë‹¹ì—°ì‚°ì - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 
 	return *this;
 }
@@ -389,36 +389,36 @@ std::ostream& operator<<(std::ostream& os, const String& s)
 
 int main()
 {
-	String s1{ "Ç¥ÁØ string°ú °°Àº µ¿ÀÛÀ» ÇÏ´Â Å¬·¡½º" };
+	String s1{ "í‘œì¤€ stringê³¼ ê°™ì€ ë™ì‘ì„ í•˜ëŠ” í´ë˜ìŠ¤" };
 	String s2 = s1;
 
 	std::cout << s1 << std::endl;
 	std::cout << s2 << std::endl;
 
-	Save("main.cpp", "10¿ù 13ÀÏ(¼ö).txt");
+	Save("main.cpp", "10ì›” 13ì¼(ìˆ˜).txt");
 }
 
 
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-ÀúÀå½Ã°£: 2021-11-04 ¿ÀÈÄ 10:20:47 ¸ñ¿äÀÏ
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-// 10¿ù 27ÀÏ ¼ö¿äÀÏ (9ÁÖ 1ÀÏ)
+â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+ì €ì¥ì‹œê°„: 2021-11-04 ì˜¤í›„ 10:20:47 ëª©ìš”ì¼
+â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+//â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+// 10ì›” 27ì¼ ìˆ˜ìš”ì¼ (9ì£¼ 1ì¼)
 // 
-// Ç¥ÁØ string°ú À¯»çÇÑ ±â´ÉÀ» ÇÏ´Â StringÀ» ¸¸µé¸ç class ¼³°è¿¡ ÇÊ¿äÇÑ °ÍµéÀ» ÇĞ½À
-//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// í‘œì¤€ stringê³¼ ìœ ì‚¬í•œ ê¸°ëŠ¥ì„ í•˜ëŠ” Stringì„ ë§Œë“¤ë©° class ì„¤ê³„ì— í•„ìš”í•œ ê²ƒë“¤ì„ í•™ìŠµ
+//â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 
 #include <iostream>
 #include <string>
 #include "save.h"
 
-// [¹®Á¦] ´ÙÀ½ main()ÀÌ ¹®Á¦ ¾øÀÌ ½ÇÇàµÇµµ·Ï class StringÀ» ÄÚµùÇÏ¶ó.
-// main()ÀÌ ¼öÁ¤µÇ¸é ¾È µÈ´Ù.
+// [ë¬¸ì œ] ë‹¤ìŒ main()ì´ ë¬¸ì œ ì—†ì´ ì‹¤í–‰ë˜ë„ë¡ class Stringì„ ì½”ë”©í•˜ë¼.
+// main()ì´ ìˆ˜ì •ë˜ë©´ ì•ˆ ëœë‹¤.
 
 class String
 {
 public:
-	String() { std::cout << "µğÆúÆ® »ı¼ºÀÚ() - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl; };
+	String() { std::cout << "ë””í´íŠ¸ ìƒì„±ì() - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl; };
 	String(const char* str);
 	String(const String& other);
 	~String();
@@ -431,8 +431,8 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const String& s);
 
 private:
-	size_t num{};	// ÀúÀåÇÑ ±ÛÀÚ ¼ö
-	char* p{};		// ±ÛÀÚ°¡ ÀÖ´Â ¸Ş¸ğ¸®
+	size_t num{};	// ì €ì¥í•œ ê¸€ì ìˆ˜
+	char* p{};		// ê¸€ìê°€ ìˆëŠ” ë©”ëª¨ë¦¬
 };
 
 String::String(const char* str) : num(strlen(str))
@@ -440,19 +440,19 @@ String::String(const char* str) : num(strlen(str))
 	p = new char[num];
 	memcpy(p, str, num);
 
-	std::cout << "»ı¼ºÀÚ(const char*) - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "ìƒì„±ì(const char*) - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 }
 
 String::String(const String& other) : num(other.num), p(new char[num])
 {
 	memcpy(p, other.p, num);
 
-	std::cout << "º¹»ç»ı¼ºÀÚ(const String&) - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "ë³µì‚¬ìƒì„±ì(const String&) - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 }
 
 String::~String()
 {
-	std::cout << "¼Ò¸êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "ì†Œë©¸ì - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 
 	delete[] p;
 }
@@ -480,7 +480,7 @@ String& String::operator=(const String& other)
 
 	memcpy(p, other.p, num);
 
-	std::cout << "ÇÒ´ç¿¬»êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "í• ë‹¹ì—°ì‚°ì - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 
 	return *this;
 }
@@ -497,36 +497,36 @@ std::ostream& operator<<(std::ostream& os, const String& s)
 
 int main()
 {
-	String s1{ "Ç¥ÁØ string°ú °°Àº µ¿ÀÛÀ» ÇÏ´Â Å¬·¡½º" };
+	String s1{ "í‘œì¤€ stringê³¼ ê°™ì€ ë™ì‘ì„ í•˜ëŠ” í´ë˜ìŠ¤" };
 	String s2 = s1;
 
 	std::cout << s1 << std::endl;
 	std::cout << s2 << std::endl;
 
-	Save("main.cpp", "10¿ù 27ÀÏ(¼ö).txt");
+	Save("main.cpp", "10ì›” 27ì¼(ìˆ˜).txt");
 }
 
 
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-ÀúÀå½Ã°£: 2021-11-04 ¿ÀÈÄ 10:28:57 ¸ñ¿äÀÏ
-¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-// 10¿ù 27ÀÏ ¼ö¿äÀÏ (9ÁÖ 1ÀÏ)
+â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+ì €ì¥ì‹œê°„: 2021-11-04 ì˜¤í›„ 10:28:57 ëª©ìš”ì¼
+â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+//â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+// 10ì›” 27ì¼ ìˆ˜ìš”ì¼ (9ì£¼ 1ì¼)
 // 
-// Ç¥ÁØ string°ú À¯»çÇÑ ±â´ÉÀ» ÇÏ´Â StringÀ» ¸¸µé¸ç class ¼³°è¿¡ ÇÊ¿äÇÑ °ÍµéÀ» ÇĞ½À
-//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// í‘œì¤€ stringê³¼ ìœ ì‚¬í•œ ê¸°ëŠ¥ì„ í•˜ëŠ” Stringì„ ë§Œë“¤ë©° class ì„¤ê³„ì— í•„ìš”í•œ ê²ƒë“¤ì„ í•™ìŠµ
+//â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 
 #include <iostream>
 #include <string>
 #include "save.h"
 
-// [¹®Á¦] ´ÙÀ½ main()ÀÌ ¹®Á¦ ¾øÀÌ ½ÇÇàµÇµµ·Ï class StringÀ» ÄÚµùÇÏ¶ó.
-// main()ÀÌ ¼öÁ¤µÇ¸é ¾È µÈ´Ù.
+// [ë¬¸ì œ] ë‹¤ìŒ main()ì´ ë¬¸ì œ ì—†ì´ ì‹¤í–‰ë˜ë„ë¡ class Stringì„ ì½”ë”©í•˜ë¼.
+// main()ì´ ìˆ˜ì •ë˜ë©´ ì•ˆ ëœë‹¤.
 
 class String
 {
 public:
-	String() { std::cout << "µğÆúÆ® »ı¼ºÀÚ() - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl; };
+	String() { std::cout << "ë””í´íŠ¸ ìƒì„±ì() - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl; };
 	String(const char* str);
 	String(const String& other);
 	~String();
@@ -540,8 +540,8 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const String& s);
 
 private:
-	size_t num{};	// ÀúÀåÇÑ ±ÛÀÚ ¼ö
-	char* p{};		// ±ÛÀÚ°¡ ÀÖ´Â ¸Ş¸ğ¸®
+	size_t num{};	// ì €ì¥í•œ ê¸€ì ìˆ˜
+	char* p{};		// ê¸€ìê°€ ìˆëŠ” ë©”ëª¨ë¦¬
 };
 
 String::String(const char* str) : num(strlen(str))
@@ -549,19 +549,19 @@ String::String(const char* str) : num(strlen(str))
 	p = new char[num];
 	memcpy(p, str, num);
 
-	std::cout << "»ı¼ºÀÚ(const char*) - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "ìƒì„±ì(const char*) - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 }
 
 String::String(const String& other) : num(other.num), p(new char[num])
 {
 	memcpy(p, other.p, num);
 
-	std::cout << "º¹»ç»ı¼ºÀÚ(const String&) - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "ë³µì‚¬ìƒì„±ì(const String&) - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 }
 
 String::~String()
 {
-	std::cout << "¼Ò¸êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "ì†Œë©¸ì - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 
 	delete[] p;
 }
@@ -589,7 +589,7 @@ String& String::operator=(const String& other)
 
 	memcpy(p, other.p, num);
 
-	std::cout << "ÇÒ´ç¿¬»êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "í• ë‹¹ì—°ì‚°ì - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 
 	return *this;
 }
@@ -619,15 +619,15 @@ std::ostream& operator<<(std::ostream& os, const String& s)
 
 int main()
 {
-	String s1{ "C¾ğ¾î´Â char*·Î ¹®ÀÚ¿­À» ´Ù·é´Ù" };
-	String s2{ " - C++ ¾ğ¾î´Â stringÀ» »ç¿ëÇÑ´Ù" };
+	String s1{ "Cì–¸ì–´ëŠ” char*ë¡œ ë¬¸ìì—´ì„ ë‹¤ë£¬ë‹¤" };
+	String s2{ " - C++ ì–¸ì–´ëŠ” stringì„ ì‚¬ìš©í•œë‹¤" };
 
 	String s3 = s1 + s2;
 
-	std::cout << "s3ÀÇ ±ÛÀÚ ¼ö : " << s3.size() << std::endl;
+	std::cout << "s3ì˜ ê¸€ì ìˆ˜ : " << s3.size() << std::endl;
 	std::cout << s3 << std::endl;
 
-	Save("main.cpp", "10¿ù 27ÀÏ(¼ö).txt");
+	Save("main.cpp", "10ì›” 27ì¼(ìˆ˜).txt");
 }
 
 
