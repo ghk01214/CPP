@@ -13,9 +13,27 @@
 #include "save.h"
 #include "Dog.h"
 
+// 원래 Dog인 객체만 움직이게 하고 싶다.
+// Animal*를 Dog*로 변환하는 downcasting이다.
+// 실시간에 type 정보를 확인하는 메커니즘을 이용한다.
+// RTTI = Real Time Type Identification
+
 int main()
 {
-	
+	Dog a;
+	Bird b;
+
+	Animal* p[2];
+	p[0] = &a;
+	p[1] = &b;
+
+	for (int i = 0; i < 2; ++i)
+	{
+		if (dynamic_cast<Dog*>(p[i]))
+		{
+			p[i]->Move();
+		}
+	}
 
 	Save(std::vector<std::string>{ "main.cpp", "Animal.h", "Animal.cpp" }, "11월 29일(월).txt");
 }

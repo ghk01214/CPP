@@ -7,7 +7,7 @@ public:
 	Animal() = default;
 	Animal(std::string name) : name(name) {}
 public:
-	virtual void Move() = 0;		// 순수 가상함수
+	virtual void Move() const = 0;		// 순수 가상함수
 
 protected:
 	std::string name;
@@ -21,7 +21,7 @@ public:
 	Dog() = default;
 	Dog(std::string name) : Animal(name) {}
 public:
-	virtual void Move();
+	virtual void Move() const override final;		// final : 파생 클래스 생성(상속) 금지
 };
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -32,7 +32,7 @@ public:
 	Bird() = default;
 	Bird(std::string name) : Animal(name) {}
 public:
-	virtual void Move();
+	virtual void Move() const override;
 };
 
 #endif // ! _ANIMAL
