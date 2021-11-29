@@ -4,15 +4,15 @@
 class String
 {
 public:
-	String() { std::cout << "µðÆúÆ® »ý¼ºÀÚ() - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl; };
+	String() { std::cout << "ë””í´íŠ¸ ìƒì„±ìž() - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl; };
 	String(const char* str);
 	~String();
 public:
-	String(const String& other);				// º¹»ç»ý¼ºÀÚ
-	String& operator=(const String& other);		// º¹»ç ÇÒ´ç¿¬»êÀÚ
+	String(const String& other);				// ë³µì‚¬ìƒì„±ìž
+	String& operator=(const String& other);		// ë³µì‚¬ í• ë‹¹ì—°ì‚°ìž
 
-	String(String&& other) noexcept;			// ÀÌµ¿»ý¼ºÀÚ, &&´Â ÀÚ¿øÀÌ ÀÌµ¿µÊÀ» ÀÇ¹Ì
-	String& operator=(String&& other) noexcept;	// ÀÌµ¿ ÇÒ´ç¿¬»êÀÚ
+	String(String&& other) noexcept;			// ì´ë™ìƒì„±ìž, &&ëŠ” ìžì›ì´ ì´ë™ë¨ì„ ì˜ë¯¸
+	String& operator=(String&& other) noexcept;	// ì´ë™ í• ë‹¹ì—°ì‚°ìž
 public:
 	void show();
 public:
@@ -22,8 +22,8 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const String& s);
 
 private:
-	size_t num{};	// ÀúÀåÇÑ ±ÛÀÚ ¼ö
-	char* p{};		// ±ÛÀÚ°¡ ÀÖ´Â ¸Þ¸ð¸®
+	size_t num{};	// ì €ìž¥í•œ ê¸€ìž ìˆ˜
+	char* p{};		// ê¸€ìžê°€ ìžˆëŠ” ë©”ëª¨ë¦¬
 };
 
 #endif // !_STRING

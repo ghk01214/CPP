@@ -1,21 +1,21 @@
-//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
-// 11¿ù 29ÀÏ ¿ù¿äÀÏ (13ÁÖ 2ÀÏ)
+//â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+// 11ì›” 29ì¼ ì›”ìš”ì¼ (13ì£¼ 2ì¼)
 // 
-// 1. °´Ã¼°£ÀÇ °ü°è : »ó¼Ó(inheritance)
-//	1. ÄÚµå¸¦ Àç»ç¿ëÇÑ´Ù.(STRING)
-//	2. ´ÙÇü¼ºÀ» ±¸ÇöÇÑ´Ù.
+// 1. ê°ì²´ê°„ì˜ ê´€ê³„ : ìƒì†(inheritance)
+//	1. ì½”ë“œë¥¼ ìž¬ì‚¬ìš©í•œë‹¤.(STRING)
+//	2. ë‹¤í˜•ì„±ì„ êµ¬í˜„í•œë‹¤.
 // 
-// ÇÔ¼öÀÇ Á¤Ã¼(¸â¹ö ÇÔ¼ö Æ÷ÇÔ)
-//¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+// í•¨ìˆ˜ì˜ ì •ì²´(ë©¤ë²„ í•¨ìˆ˜ í¬í•¨)
+//â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 
 #include <iostream>
 
 #include "save.h"
 #include "Dog.h"
 
-// ¿ø·¡ DogÀÎ °´Ã¼¸¸ ¿òÁ÷ÀÌ°Ô ÇÏ°í ½Í´Ù.
-// Animal*¸¦ Dog*·Î º¯È¯ÇÏ´Â downcastingÀÌ´Ù.
-// ½Ç½Ã°£¿¡ type Á¤º¸¸¦ È®ÀÎÇÏ´Â ¸ÞÄ¿´ÏÁòÀ» ÀÌ¿ëÇÑ´Ù.
+// ì›ëž˜ Dogì¸ ê°ì²´ë§Œ ì›€ì§ì´ê²Œ í•˜ê³  ì‹¶ë‹¤.
+// Animal*ë¥¼ Dog*ë¡œ ë³€í™˜í•˜ëŠ” downcastingì´ë‹¤.
+// ì‹¤ì‹œê°„ì— type ì •ë³´ë¥¼ í™•ì¸í•˜ëŠ” ë©”ì»¤ë‹ˆì¦˜ì„ ì´ìš©í•œë‹¤.
 // RTTI = Real Time Type Identification
 
 int main()
@@ -35,5 +35,5 @@ int main()
 		}
 	}
 
-	Save(std::vector<std::string>{ "main.cpp", "Animal.h", "Animal.cpp" }, "11¿ù 29ÀÏ(¿ù).txt");
+	Save(std::vector<std::string>{ "main.cpp", "Animal.h", "Animal.cpp" }, "11ì›” 29ì¼(ì›”).txt");
 }

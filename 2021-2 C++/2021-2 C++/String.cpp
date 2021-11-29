@@ -7,12 +7,12 @@ String::String(const char* str) : num(strlen(str))
 	p = new char[num];
 	memcpy(p, str, num);
 
-	std::cout << "»ý¼ºÀÚ(const char*) - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "ìƒì„±ìž(const char*) - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 }
 
 String::~String()
 {
-	std::cout << "¼Ò¸êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "ì†Œë©¸ìž - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 
 	delete[] p;
 }
@@ -21,7 +21,7 @@ String::String(const String& other) : num(other.num), p(new char[num])
 {
 	memcpy(p, other.p, num);
 
-	std::cout << "º¹»ç»ý¼ºÀÚ(const String&) - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "ë³µì‚¬ìƒì„±ìž(const String&) - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 }
 
 String& String::operator=(const String& other)
@@ -35,7 +35,7 @@ String& String::operator=(const String& other)
 
 	memcpy(p, other.p, num);
 
-	std::cout << "º¹»ç ÇÒ´ç¿¬»êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "ë³µì‚¬ í• ë‹¹ì—°ì‚°ìž - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 
 	return *this;
 }
@@ -45,7 +45,7 @@ String::String(String&& other) noexcept : num(other.num), p(other.p)
 	other.num = 0;
 	other.p = nullptr;
 
-	std::cout << "ÀÌµ¿»ý¼ºÀÚ(String&&) - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "ì´ë™ìƒì„±ìž(String&&) - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 }
 
 String& String::operator=(String&& other) noexcept
@@ -60,7 +60,7 @@ String& String::operator=(String&& other) noexcept
 	other.num = 0;
 	other.p = nullptr;
 
-	std::cout << "ÀÌµ¿ ÇÒ´ç¿¬»êÀÚ - °¹¼ö : " << num << ", ÁÖ¼Ò : " << static_cast<void*>(p) << std::endl;
+	std::cout << "ì´ë™ í• ë‹¹ì—°ì‚°ìž - ê°¯ìˆ˜ : " << num << ", ì£¼ì†Œ : " << static_cast<void*>(p) << std::endl;
 
 	return *this;
 }

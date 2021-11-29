@@ -4,38 +4,38 @@ void Save(std::vector<std::string> saveList, std::string saveDate)
 {
 	char c;
 
-	std::cout << "\nÀúÀå?" << std::endl;
+	std::cout << "\nì €ì¥?" << std::endl;
 	std::cin >> c;
 
 	if (c == 'y')
 	{
 		std::ofstream out(saveDate, std::ios::app);
 		//std::ofstream out2("2021-2 C++.txt", std::ios::app);
-		std::ofstream out2("Áß°£°í»ç ÀÌÈÄ2.txt", std::ios::app);
+		std::ofstream out2("ì¤‘ê°„ê³ ì‚¬ ì´í›„2.txt", std::ios::app);
 
-		//ÆÄÀÏÀ» ±â·ÏÇÑ ½Ã°£µµ Ç¥½Ã
+		//íŒŒì¼ì„ ê¸°ë¡í•œ ì‹œê°„ë„ í‘œì‹œ
 		time_t t{ std::time(nullptr) };
 
-		//½Ã°£ ±â·Ï Áö¿ª º¯°æ
+		//ì‹œê°„ ê¸°ë¡ ì§€ì—­ ë³€ê²½
 		out.imbue(std::locale("korean"));
 
-		out << "¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬" << std::endl;
-		out << "ÀúÀå½Ã°£: " << std::put_time(localtime(&t), "%c %A") << std::endl;
-		out << "¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬" << std::endl;
+		out << "â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”" << std::endl;
+		out << "ì €ì¥ì‹œê°„: " << std::put_time(localtime(&t), "%c %A") << std::endl;
+		out << "â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”" << std::endl;
 
-		out2 << "¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬" << std::endl;
-		out2 << "ÀúÀå½Ã°£: " << std::put_time(localtime(&t), "%c %A") << std::endl;
-		out2 << "¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬" << std::endl;
+		out2 << "â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”" << std::endl;
+		out2 << "ì €ì¥ì‹œê°„: " << std::put_time(localtime(&t), "%c %A") << std::endl;
+		out2 << "â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”" << std::endl;
 
 		for (const auto& fileName : saveList)
 		{
-			// ¾î¶² ÆÄÀÏÀ» ÀúÀåÇÏ´ÂÁö È­¸é¿¡ Ãâ·Â
-			std::cout << "ÀúÀå: " << fileName << ", Å©±â: " << std::filesystem::file_size(fileName) << std::endl;
+			// ì–´ë–¤ íŒŒì¼ì„ ì €ì¥í•˜ëŠ”ì§€ í™”ë©´ì— ì¶œë ¥
+			std::cout << "ì €ì¥: " << fileName << ", í¬ê¸°: " << std::filesystem::file_size(fileName) << std::endl;
 			out << fileName << std::endl;
 
 			std::ifstream in(fileName);
 
-			//ÆÄÀÏÀÇ ³¡À» ¾Ë·ÁÁÖ±â À§ÇØ¼­ char ÇüÀÌ ¾Æ´Ï¶ó int ÇüÀ¸·Î ¹Ş¾Æ¿Â´Ù
+			//íŒŒì¼ì˜ ëì„ ì•Œë ¤ì£¼ê¸° ìœ„í•´ì„œ char í˜•ì´ ì•„ë‹ˆë¼ int í˜•ìœ¼ë¡œ ë°›ì•„ì˜¨ë‹¤
 			//int c;
 
 			//while ((c = in.get()) != EOF)
@@ -53,8 +53,8 @@ void Save(std::vector<std::string> saveList, std::string saveDate)
 
 			if (saveList.size() > 1)
 			{
-				out << std::endl << std::endl << "¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬" << std::endl << std::endl;
-				out2 << std::endl << std::endl << "¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬" << std::endl << std::endl;
+				out << std::endl << std::endl << "â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”" << std::endl << std::endl;
+				out2 << std::endl << std::endl << "â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”" << std::endl << std::endl;
 			}
 
 			//in.close();
