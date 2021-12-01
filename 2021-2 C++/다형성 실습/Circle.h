@@ -1,4 +1,4 @@
-#ifndef _CIRCLE
+﻿#ifndef _CIRCLE
 #define _CIRCLE
 
 #include "Point.h"
@@ -13,6 +13,10 @@ public:
 	~Circle() {}
 public:
 	virtual void Draw() const override;
+	Point GetCenter() { return center; }
+	double GetRadius() { return rad; }
+public:
+	friend std::istream& operator>>(std::istream& is, Circle& c);
 
 private:
 	Point center;

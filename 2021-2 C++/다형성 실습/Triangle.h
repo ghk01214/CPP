@@ -13,6 +13,12 @@ public:
 	~Triangle() {}
 public:
 	virtual void Draw() const override;
+public:
+	Point GetP1() { return p1; }
+	Point GetP2() { return p2; }
+	Point GetP3() { return p3; }
+public:
+	friend std::istream& operator>>(std::istream& is, Triangle& tri);
 
 private:
 	Point p1, p2, p3;

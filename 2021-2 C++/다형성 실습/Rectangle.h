@@ -13,6 +13,10 @@ public:
 	~Rectangle() {}
 public:
 	virtual void Draw() const override;
+	Point GetP1() { return p1; }
+	Point GetP2() { return p2; }
+public:
+	friend std::istream& operator>>(std::istream& is, Rectangle& r);
 
 private:
 	Point p1, p2;

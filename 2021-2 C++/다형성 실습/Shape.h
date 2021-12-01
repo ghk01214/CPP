@@ -5,7 +5,7 @@ class Shape
 {
 public:
 	Shape() {}
-	~Shape() {}
+	virtual ~Shape() {}
 public:
 	virtual void Draw() const = 0;
 };

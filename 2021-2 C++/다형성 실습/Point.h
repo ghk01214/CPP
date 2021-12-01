@@ -14,11 +14,4 @@ public:
 	double x, y;
 };
 
-std::istream& operator>>(std::istream& is, Point& p)
-{
-	is >> p.x >> p.y;
-
-	return is;
-}
-
 #endif // ! _POINT

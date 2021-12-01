@@ -12,6 +12,16 @@ public:
 public:
 	void Insert(Shape* s) { shapes[size++] = s; };
 	void Draw() const;
+	void RemoveByNumber(int num);
+	void RemoveByShape(int type);
+	void ReallocateMemory(int capa);
+public:
+	bool IsFull() { return size == capacity; }
+	int GetSize() { return size; }
+	int GetCapacity() { return capacity; }
+	Shape* GetShape(int num) { return shapes[num]; }
+public:
+	friend std::ostream& operator<<(std::ostream& os, const Shape& s);
 
 private:
 	int size;
