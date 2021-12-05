@@ -1,4 +1,4 @@
-#ifndef _SHAPE_H
+﻿#ifndef _SHAPE_H
 #define _SHAPE_H
 
 class Shape

@@ -1,4 +1,4 @@
-#ifndef _TRIANGLE
+﻿#ifndef _TRIANGLE
 #define _TRIANGLE
 
 #include "Point.h"

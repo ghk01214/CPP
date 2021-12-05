@@ -1,4 +1,4 @@
-#ifndef _SHAPE_MANAGER
+﻿#ifndef _SHAPE_MANAGER
 #define _SHAPE_MANAGER
 
 #include "Shape.h"
