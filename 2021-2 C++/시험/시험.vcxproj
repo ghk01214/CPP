@@ -146,7 +146,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="기말고사.cpp" />
+    <ClCompile Include="MemoryMonster.cpp" />
+    <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="ScreenMonster.cpp" />
+    <ClCompile Include="TimeMonster.cpp" />
+    <ClCompile Include="기말시험.cpp" />
     <ClCompile Include="중간고사%28연습%29.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -156,6 +160,12 @@
     <ClCompile Include="중간고사.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MemoryMonster.h" />
+    <ClInclude Include="Monster.h" />
+    <ClInclude Include="ScreenMonster.h" />
+    <ClInclude Include="TimeMonster.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
